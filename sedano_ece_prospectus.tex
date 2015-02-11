@@ -126,45 +126,24 @@ Essence Kernel \sep Empirical Research
 %%
 %% Start line numbering here if you want
 %%
-\linenumbers
-
-%% main text
-\section{Background}
-The SEMAT community created Essence as a universal framework for any software engineering project. At the core of Essence is a ``kernel of widely-agreed elements'' ~\cite{JacobsonQueue}. This general kernel can theoretically support any kind of software endeavor. A software project can define its software processes by using the general kernel, extending the kernel, or defining additional practices on top of the kernel.
-
-The Essence kernel is composed of a set of alphas, alpha states, and alpha state checklist items. The Essence kernel defines different characteristics or dimensions of a software project as an ``alpha.'' The seven alphas are \textbf{Stakeholders}, \textbf{Opportunity}, \textbf{Requirements}, \textbf{Software System}, \textbf{Team}, \textbf{Way of Working}, and \textbf{Work}. Essence decomposes each of these alphas into a set of states that represent a simple linear state machine as shown in Figure \ref{StateMachine}. For example, the \textbf{Requirements} alpha advances through the states \textit{Conceived}, \textit{Bounded}, \textit{Coherent}, \textit{Acceptable}, \textit{Addressed}, and \textit{Fulfilled.} Each state has a checklist or set of goals. To achieve a state, the project must satisfy every checklist item for that state. \cite{OMGStandard} 
- 
-\begin{figure}[h]\vspace*{4pt}
-\centerline{\includegraphics[width=5.4in]{kernel_images/StateMachineRequirements}}
-\caption{Kernel's linear state machine for Requirements alpha (with Fulfilled Checklist)}\vspace*{-6pt}\label{StateMachine}
-\end{figure}
-
-When the SEMAT community created the Essence kernel, they relied upon human experience and judgment to select the alphas, states, and checklists. Essence is not grounded by empirical data. There might be other possible groupings of checklist items that are more effective which we might not normally consider because they do not match our preconceived notions of structure and order.
-
-I performed a field study \cite{ICSE2014} to understand the value project teams receive from following the SEMAT Essence’s monitoring and steering approach provided by the Essence kernel alphas and their states. The study involved seven teams of software engineering master students with no prior knowledge of Essence. The study showed that the approach provides student teams with a simple, lightweight, non- prescriptive and method-agnostic way to examine their projects holistically, structure team reflections, manage risks, monitor progress and steer their projects. Compared to the ten previous years, the faculty in charge of the practicum course noted that there was “much better early project organization with a lot less floundering.” Indeed, the approach enables students to learn to steer projects effectively by addressing the various dimensions of software engineering.
-
-The study also highlighted that the monitoring and steering mechanisms are most effective during project initiation and for monitoring and steering the work done at the project or release level. This type of work could be qualified as “universal” as it is generally common across projects. This confirms that the kernel provides an effective support for universal work. Support for non- universal technical work should come from additional practices added on top of the kernel, or by extending or altering the kernel definition.
-
-I proposed a new Essence Kernel to the SEMAT community. From the Essence Reflection meetings, I noticed several issues involving unclear checklist items, waterfall sequecne, etc.
-
-I created a research and educational tool. 
-
-I leveraged genetic algorithms to explore this possibility. Genetic algorithms explore a search space by initially choosing random spaces in the search space and iteratively try to locate more optimal solutions through random permutations of search space parameters. Given the stochastic nature of the process, multiple runs are recommended before making conclusions about observations \cite{Goldberg1989, Holland1992}.
-
-We leverage empirical data to evaluate possible candidate kernels. During the Spring 2014 and Summer 2014 semesters, graduate software engineering students at Carnegie Mellon University in Silicon Valley recorded their progress during their software engineering practicum course. The study includes five student teams, including geographically distributed and co-located
-teams. Each team worked on creating or evolving a software solution for a different industry client such as an electric car fleet management system or a survivable social network. By design, the projects had a medium to high level of technical complexity, as they often involved multiple technologies, platforms, or integration with legacy systems. The practicum
-projects ran for 15 weeks, during which each student dedicated about 20 hours per week to the project. Students worked in teams of two to five members. Teams determined their own software development approach. Most students had a few years of professional software development experience and were familiar with common software engineering practices. All projects adopted an iterative lifecycle. Each team recorded which checklist items the team accomplished during their weekly Essence Reflection meetings \cite{EASE2014}.
+%%\linenumbers
 
 \section{Introduction}
 
-\subsection{Problem Statement}
+\subsection{Problem Statement - Way In 1}
+
+Pivotal track record
+
+
+
+\subsection{Problem Statement - Way In 2}
 Software development teams can use Essence Reflection Meetings \cite{EASE2014} to track and monitor their progress throughout a software project. 
 
 A field study using software engineering master students in a team-based capstone project showed that most of the value from the Essence Kernel occurs during project startup and initiation \cite{ICSE2014}.
 
 Because the Essence Kernel is software methodology agnostic, it does not directly provide support for iterative software projects. \cite{ICSE2014}
 
-Pivotal is a strong proponent of Extreme Programming and have been following the core practices since approximately 1998.
+Pivotal software has followed Extreme Programming since the late 1990's. Occasionally, there are anecdotal reminders that Pivotal worked with Kent Beck during the early days of Extreme Programming. While each team is autonomous to make its own decisions about what is best for the particular project, there is a strong culture to follow all of the core practices of Extreme Programming including Pair Programming, Test Driven Development, Weekly Retrospections, Daily Stand-ups, Prioritized Backlog, Whole Team ownership of the project and code base, and Kanban's notion of work flowing through people. 
 
 Adapting the Essence Kernel to meet the needs of Pivotal could show how an extension to the kernel could support iterative software development.
 
@@ -179,7 +158,7 @@ research goal using Goal/Question/Metric:
 
 \begin{table}[h]
 \centering
-\begin{tabular}{|p{1.00in}|p{2.10in}|}
+\begin{tabular}{|p{2.00in}|p{4.10in}|}
 \hline
 Analyze & kernel extensions \\ \hline
 for the purpose of & evaluation \\ \hline
@@ -190,30 +169,30 @@ in the context of & software development at Pivotal. \\
 \end{tabular}
 \end{table}
 
-Other questions...
-1) Is it what you do at pivotal in satisfy what is in the kernel, does the kernel describe what is happening at a high level. 
+
+Research Question 1: Does the kernel support software development as it is done at Pivotal? (Is it what you do at pivotal in satisfy what is in the kernel, does the kernel describe what is happening at a high level.)
 
 --> Cecile interviews Todd (Pivotal Practitioner)
 
-2) Will Essence be useful? Why are you not using it? Is it helping at pivotal? 
+Research Question 2: Is Essence useful? Why are you not using it? Is it helping at pivotal? 
 
-3a) How would you modify the kernel 
+Research Question 3a) How would you modify the kernel 
 
-3b) How would you extend the kernel to incorporate iterative development as it is done at Pivotal?
+Research Question 3b) How would you extend the kernel to incorporate iterative development as it is done at Pivotal?
 
-How does the extension compare to the Requirement Item Sub Alpha and the Software System Alpha? 
+Research Question 4: How does the extension compare to other Essence components such as the Requirements-Item Sub-Alpha and the Software-System Alpha? 
 
-How does it compare to scrum
+Research Question 5: How does it compare to Scrum
 
 
 \subsection{Context}
-Pivotal provides a wide range of software development: Cloud Foundry (Platform as a Service),  (Bid Data)
+Pivotal provides a wide range of software development: Cloud Foundry (Platform as a Service),  (Big Data)
 
 Pivotal Labs provides consulting for start ups and enterprise companies.
 
 For this study, the experience of the participants ranged from 0 to 20 years.
 
-The methodology under study is Extreme Programming.
+The methodology under study is Extreme Programming. \cite{ExtremeProgrammingExplained}
 
 The size of the projects ranged from 4, 6, 6, and 30 engineers.
 
@@ -221,9 +200,34 @@ The rest of the paper will discuss .... outline.
 
 
 \section{Background}
+The SEMAT community created Essence as a universal framework for any software engineering project. At the core of Essence is a ``kernel of widely-agreed elements'' ~\cite{JacobsonQueue}. This general kernel can theoretically support any kind of software endeavor. A software project can define its software processes by using the general kernel, extending the kernel, or defining additional practices on top of the kernel.
+
+The Essence kernel is composed of a set of alphas, alpha states, and alpha state checklist items. The Essence kernel defines different characteristics or dimensions of a software project as an ``alpha.'' The seven alphas are \textbf{Stakeholders}, \textbf{Opportunity}, \textbf{Requirements}, \textbf{Software System}, \textbf{Team}, \textbf{Way of Working}, and \textbf{Work}. Essence decomposes each of these alphas into a set of states that represent a simple linear state machine as shown in Figure \ref{StateMachine}. For example, the \textbf{Requirements} alpha advances through the states \textit{Conceived}, \textit{Bounded}, \textit{Coherent}, \textit{Acceptable}, \textit{Addressed}, and \textit{Fulfilled.} Each state has a checklist or set of goals. To achieve a state, the project must satisfy every checklist item for that state. \cite{OMGStandard} 
+ 
+\begin{figure}[h]\vspace*{4pt}
+\centerline{\includegraphics[width=5.4in]{kernel_images/StateMachineRequirements}}
+\caption{Kernel's linear state machine for Requirements alpha (with Fulfilled Checklist)}\vspace*{-6pt}\label{StateMachine}
+\end{figure}
+
+I performed a field study \cite{ICSE2014} that showed that Essence Reflection meetings \cite{EASE2014} using the Essence kernel provide project teams with a simple, lightweight, non- prescriptive and method-agnostic way to examine their projects holistically, structure team reflections, manage risks, monitor progress and steer their projects. The purpose of the field study was to to understand the value project teams receive from following the SEMAT Essence’s monitoring and steering approach provided by the Essence kernel alphas and their states. The two semester field study followed seven master of software engineering teams with no prior knowledge of Essence in a team-based capstone course called, "Software Engineering Practicum." Compared to the ten previous years, the faculty in charge of the practicum course noted that there was “much better early project organization with a lot less floundering.” Indeed, the approach enables students to learn to steer projects effectively by addressing the various dimensions of software engineering.
+
+The field study also highlighted that the monitoring and steering mechanisms are most effective during project initiation and for monitoring and steering the work done at the project or release level. This type of work could be qualified as “universal” as it is generally common across projects. This confirms that the kernel provides an effective support for universal work. Support for non-universal technical work should come from additional practices added on top of the kernel, or by extending or altering the kernel definition.
+
+%I proposed a new Essence Kernel to the SEMAT community. From the Essence Reflection meetings, I noticed several issues involving unclear checklist items, waterfall sequence, etc.
+
+After creating a research and educational tool, I collected empirical data on how teams progress through the Essence kernel during their project. I leveraged genetic algorithms
+to generate candidate replacement kernels by using a fitness function based on empirical data. When the SEMAT community created the Essence kernel, they relied upon human experience and judgment to select the alphas, states, and checklists. Essence is not grounded by empirical data. The generated kernels outscored the original. The purpose of that exploratory work was to demonstrate one way to generate a candidate Essence kernel directly from empirical data, not to recommend a replacement for the original Essence kernel. \cite{SCSE2015
+
+\section{Background}
 
 \subsection{Method under Investigation}
 The Essence Kernel ....
+
+
+While the original kernel appears to be descriptive and the kernel does claim to support any software project, in practice, the kernel is a prescriptive representation. First, the kernel is based on expert experience not directly from project data. Second, when discussing potential modifications to the original kernel based on my project data, the kernel committee (what's the official name?) made comments to the effect of ``that's a nice suggestion, but we don't think that would generalize to all projects" and ``that's a nice suggestion, but we want to represent how projects should be run, not how they are actually run." 
+
+
+
 
 \subsection{Alternative Solutions}
 
@@ -233,26 +237,77 @@ EASE2014
 ICSE2014
 SCSE2015
 
+Elves{\ae}ter et al \cite{Elvesaeter2013} created their own kernel extension for the agile method Scrum \cite{Schwaber2001} by using the Scrum Guides \cite{ScrumGuide} as a source. Their purpose was to compare and contrast Essence with Software \& Systems Process Engineering Metamodel (SPEM) 2.0. In the example, they break down the work at the Sprint or iteration level. The \textbf{Sprint} sub-alpha extends the \textbf{Work} alpha and has the states \textit{Planned}, \textit{Started}, \textit{Under Control}, \textit{Concluded}, and \textit{Closed}. Each state is defined with its own checklist items. The sub-alpha's checklist items are independent of the alpha's checklists. It is technically possible to progress through an entire, Sprint, several Sprints, or even all Sprints without achieving all of the Work checklist items. For example, the work might never be fully ``broken down into actionable work items with clear definitions of done" until the end of the project. Likewise many agile methods strongly discouraging re-estimating work \cite{} where as the \textbf{Work} alpha includes "estimates are revised to reflect the team’s performance."  
+
+%The Remics-Essence github repository \cite{RemicsEssence} demonstrates the implementation of the Essence kernel by an EFP Composer.
+
+The work relies on the Task Management Extension defined in the OMG Proposal \cite{OMG}. 
+
+\textbf{Tasks} are the work items to be accomplished during a \textbf{Sprint} that are prioritized in the Product Backlog activity. The \textbf{Task} alpha supports the \textbf{Work} alpha and has three states \textit{Identified}, \textit{In Progress}, and \textit{Done}
+
+\textit{Identified} - The task has been identified and is ready to be done.
+\begin{itemize}
+\item A portion of work has been clearly identified and isolated.
+\item The objective of the Task is clear.
+\item The things that need to be done have been clearly described.
+\item It is clear whether the task is a whole team task, group task or individual task.
+\item The completion criteria for the task are clearly defined.
+\item The effort required to complete the task has been estimated and agreed.
+\end{itemize}
+
+\textit{In Progress} - The task has been accepted by one or more team members and work has started.
+\begin{itemize}
+\item A team member has accepted and is progressing the task.
+\item The progress of the task is monitored.
+\item A target completion date for the Task has been agreed. 
+\item The amount of effort required to complete the task is being tracked.
+\end{itemize}
+
+\textit{Done} - The work required to do the task has been completed.
+\begin{itemize}
+\item Work on the Task has stopped.
+\item The task is determined to be complete according to its completion criteria. 
+\end{itemize}
+
 \section{Field Study Planning} 
 
 \subsection{Goals}
-Skip - the goal of introduction is clear enough
+The goal is to generate a kernel extension or replacement kernel that models the practices used by product managers and software engineers at Pivotal to manage their projects.
 
 \subsection{Procedure}
-1. Generating the kernel extension
-We followed the participant-observer technique with Todd Sedano joining the software development team as a full time software engineer. The researcher contributed as an equal member of the team by writing code, attending all team meetings for 40 hours per week. 
+\subsubsection{1. Generating the initial kernel extension}
+I followed the participant-observer technique by joining a software development team as a full time software engineer. I contributed as an equal member of the team by writing code, attending all team meetings for 40 hours per week. 
 
-As software development occurred, the researcher would reflect on the software development experience, propose a representation model to explain the observations, and update the model when the date no longer supported the model.  The researcher would periodically review the kernel extension for missing elements. The proposed kernel extension is grounded by empirical data collected across projects. 
+As software development occurred, I would reflect on the software development experience and record notes. After examining my notes I created a representation model to explain the observations. I would continue to collect data and update the model when the model did not fully describe the data  I would periodically review the kernel extension for missing elements. The proposed kernel extension is grounded by empirical data collected across projects. The current proposal is in Figure \ref{KernelExtensionWorkflow} and Figure \ref{KernelExtension}.
 
-2. Validating the kernel extension
+When special circumstances arose during a project, I would collect additional data. For example, during one project, the product manager was rejecting a large number of stories. I reviewed each reason why the story was rejected and modified the model to incorporate this feedback.
 
-In order to validate the kernel extension, the researcher did 1), 2), 3).
+\subsubsection{2. Validating the kernel extension}
 
-Initially, the researchers interviewed Pivotal software engineers about their experience with story cards. This was done using semi-structured interview technique starting with one open ended question, ``What are some characteristics or attributes of an ideal story?" This question typically was sufficient to get the conversation going for twenty to thirty minutes. The information from these interviews either validate the kernel extension or caused the extension to be update to incorporate this information. After [tbd] interviews, saturation was reached.
+In order to validate the kernel extension, I plan to interview Pivotal product managers and Pivotal software engineers. Even though the two roles have different perspectives, I'll use the same interview questions because I'm after one goal, a model that describes the way Pivotal does iterative software development.
 
-The researchers interviewed several Pivotal product managers. This was done using semi-structured interviews. Several questions were asked, ``What are some characteristics or attributes of an ideal story?", ``What is the purpose of the Iteration Planning Meeting (IPM)?", ``How can you tell if a story is or is not ready for IPM? These conversations lasted around forty minutes. 
+For interviewing Pivotal product managers, I plan to use semi-structured interviews. This allows me to ask the same questions of every interview candidate, but also explore and follow-up on interesting perspectives of a participant. (There is a publishing risk as I believe reviewers focus on the common questions since typically papers don't list every asked question.)
 
-When special circumstances arose during a project, additional data collection occurred. For example, during one project, the PM was rejecting a large number of stories. One researcher reviewed each reason why the story was rejected and modified the model to incorporate this feedback.
+\begin{itemize}
+\item Please describe your typical day? What is the day in the life of a product manager?
+\item What are the characteristics and attributes on an ideal story?
+\item What is the purpose of the iteration planning meeting (IPM)?
+\item How can you tell if a story is ready for iteration planning meeting and thus ready to be pointed?
+\item What feedback go you get that the project is working well?
+\item Where does usability testing fit into your ideal project?
+\item Please describe your workflow by drawing it on this blank piece of paper.
+\item Please examine this proposed model and critique it.
+\end{itemize}
+
+I would record and transcribe these conversations. I would annotate the transcription with markers and use these to update the proposed model.
+
+Based on one trial run of these questions, I expect the conversations to last between thirty and forty minutes. 
+
+I have some open questions
+\begin{itemize}
+\item Do I interview all the product managers then software engineers? or do I co-mingle the interviews?
+\item What ratio of product managers to software engineers.
+\end{itemize}
 
 Finally, software engineers were shown the proposed kernel extension. Participants were asked to reflect on their experience at following Extreme Programming at Pivotal and then respond to the proposed kernel extension.
 
@@ -265,16 +320,27 @@ Project two had 387 stories and was a ecommerce tool for a publishing company. T
 
 Project three had 267 stories and was a web administrator tool for ISPs. The project lasted eight weeks the researcher worked with and observed the entire project.
 
+Since I'm in a new and growing office, I plan to be opportunistic in my interviewing. Our most experienced product manager recently joined a start up, and I plan to interview her. Our only office product manager is new to Pivotal, and I plan to interview him last. I plan to travel to the San Francisco office to interview product managers there. I plan to interview client product managers although their perspective may not be congruent with Pivotal's way of working. If the model hasn't reached saturation, I plan to interview product managers from one of Pivotal's nine international offices.
+
+
 For the iterative development and refinement of the kernel extension, the researchers interviewed software engineers at Pivotal who worked on projects at the Palo Alto office. The participants were chosen to have a broad representation of the office. There professional experience ranged from three to 20 years of experience. The researcher interviewed the only Palo Alto office product manager, a client product manager and a San Francisco product manager. 
 
 Participants were not paid for their time. 
 
-\section{Analysis}
+% \section{Analysis}
+\section{Expected Results}
 
-present the kernel extension here
+I expect to be able to derive a kernel extension representing Pivotal's approach to iterative software development based upon the  observations and collected data from the previous section.
+
+As an example of the expected results, I include here initial results of the \textbf{Story Card} alpha from observing several projects in Figure \ref{KernelExtensionWorkflow} and Figure \ref{KernelExtension} which are discussed in Section \ref{Discussion}.
+
+Since Pivotal follows Extreme Programming, there's a risk that the results will simply reproduce what is already known about Extreme Programming. (Currently to our knowledge, no one has shown how to model Extreme Programming on Essence.) On the plus side, I would expect that the results could be applicable to other teams that follow Extreme Programming.
+
+Again, these are initial, representative results which could change dramatically as more data is collected and the model refined.
+
 \begin{figure*}[ht]
 \includegraphics[width=6.25in]{pivotal_images/story_card_workflow}
-\caption{Pivotal Kernel Extension Workflow Story Card Alpha}
+\caption{(Initial Results) Pivotal Kernel Extension Workflow Story Card Alpha}
 \label{KernelExtensionWorkflow}
 \end{figure*}
 
@@ -282,20 +348,49 @@ present the kernel extension here
 \includegraphics[width=6.25in]{pivotal_images/story_card1}
 \includegraphics[width=6.25in]{pivotal_images/story_card2}
 \includegraphics[width=6.25in]{pivotal_images/story_card3}
-\caption{Pivotal Kernel Extension for Story Card Alpha}
+\caption{(Initial Results) Pivotal Kernel Extension for Story Card Alpha}
 \label{KernelExtension}
 \end{figure*}
 
 \section{Discussion}
+\label{Discussion}
 
 \subsection{Evaluation of Results and Implications}
 
-The proposed kernel extension corresponds to the story card states in Pivotal Tracker. At first this was not intentional, but frequent tracking of the progress of the story from start to deployment lead to significant similarities between the kernel and the Pivotal Tracker story card states. At one point, one of the researchers was worried about this, that perhaps Pivotal Tracker had too much undue influence on the kernel extension, however, since Pivotal Tracker was modeled to reflect the company's way of working, it should not surprise us that the kernel extension has many similar properties. 
+Figure \ref{KernelExtensionWorkflow} illustrates the state transitions of the \textbf{Story Card} alpha. Pivotal uses story cards in Pivotal Tracker to track and monitor the requirements for the system. The diagram identifies several problems with the kernel's fundamental structure of linear state machines. The normal flow from \textit{Named} to \textit{Accepted} is linear, however it is common for story cards to revert state. During the Iteration Planning Meeting, \textit{Ready to be Pointed} stories are delayed on pointing as the team realizes that the acceptance criteria is not clear and the product manager realizes that there are additional considerations that need to be addressed during the story's discussion.  \textit{Started} stories often become blocked on dependencies beyond the team's control.  \textit{Started} stories sometimes get un-started due to changing project needs. Eventually \textit{Blocked} stories are un-blocked and transition to being ready to be worked on. Once stories are \textit{Delivered}, they can become \textit{Rejected} for a variety of 
+reasons.
+
+Figure \ref{KernelExtension} shows the checklists for each of these states. The checklists are typical of Essence kernels checklists with two exceptions. The checklists rely on both ``and" and  ``or" conditions to achieve a state. The data collection revealed the tension between prescriptive and descriptive modeling.
+
+\subsubsection{Necessary modifications to the Essence structure}
+
+The \textit{Rejected} state happens for a specific reason, thus achieving \textit{any} one of the checklist items causes the state to be achieved and the story to be \textit{Regected}. The kernel would need a fundamental shift to support this since its underlying language requires accomplishing \textit{all} checklists. 
+
+Someone on the kernel author committee might object and say that this situation could resolved by replacing the many checkpoints with a single "the work is rejected" checkpoint. This path is unappealing as it both looses interesting information by dumbing-down the model, and simplifies the information into a trivial checkpoint that is redundant with the state's title. Another possible solution is collapse the many checkpoints into a single statement that says "A or B or C or D" as in "the delivered story does not match the acceptance criteria of the story OR the PM updated ... or the PM added ... or the PM changed ... or the PM". This make the checkpoint difficult to understand. Neither of these two work-arounds captures what we have learned: there are typical and common reasons for a story to be rejected, two of which fit the accepted flows for the work. 
+
+Todo: insert LANGUAGE here?
+
+\subsubsection{Descriptive versus Prescriptive}
+
+In creating a kernel extension for pivotal on iterative software projects, I've uncovered the tension between describing "what is" versus "the way it should be." It may be the case that this tension mirrors theories that are "descriptive" versus those that are "prescriptive". 
+
+I had carefully created an extension that modeled what really happens on a project.  When I showed a draft extension to a co-worker, the engineer objected with parts of it. We have a shared understanding of how the work should be done, but in practice unusual circumstances occur that require us to respond accordingly. In practice, the product manager did reject delivered stories but not for reasons we would accept as part of our agreed-upon workflow. (In stead of creating a new story to capture new requirements. The product manager rejected a delivered story and added new functionality as it was easier for her.) Just because something happens on a project does not mean that it should be part of ``the pivotal way" of doing things. As a researcher this presents a dilemma, am I documenting the way things really are, or the ``pivotal way."  It became apparent that I needed to separate out the descriptive from the  prescriptive. To solve this tension, I mark on my model these differences. 
+
+I am biased in believing that software engineering research should start by observing what happens day-to-day on real software projects. The benefit is that any derived research at least is grounded by real empirical data. At the minimum, it provides a description of what is and can from a Descriptive (Type I Analysis) theory. Understanding ``why software developers do not use static analysis tools" \cite{Johnson2013} could allow tool creators to better address those problems in their product. The Essence kernel does not do this. 
+
+Instead, the Essence kernel is a prescriptive theory in that it accounts for how to run software by being opinionated in which goals a project should achieve (by including those checklist items) and which goals a project should not achieve (by excluding those checklist items.)
+
+By crossing the line between describing what actually happens on a project into what should happen on a project, the Essence kernel runs the risk of both being wrong and not being useful.  It would be better to document typical ways people loose weight than to create a weight-loss program without empirical evidence. 
+
+My intuition says that these "prescriptive" or "design and action" theories would need to be grounded in data too. Have you seen anything that talks about this?
+
+I opened up the book, Guide to Advanced Empirical Software Engineering,  which sites Gregor (2006) to refresh myself on the types of theories.
 
 Many of the differences between the prescribed and described kernel extensions can be explained by optional fields or optional interactions in Pivotal Tracker.
 
-When this extension was being reviewed by a co-worker, the engineer objected that the reasons the PM were rejecting stories did not fit our agreed-upon workflow. It became apparent that I needed to separate out a descriptive from a prescriptive mode. There is a shared understanding of how the work should be done, but in practice unusual circumstances cause us to tailor the process to the situation.
 
+\subsubsection{Concerns?}
+The proposed kernel extension corresponds to the story card states in Pivotal Tracker. At first this was not intentional, but frequent tracking of the progress of the story from start to deployment lead to significant similarities between the kernel and the Pivotal Tracker story card states. At one point, one of the researchers was worried about this, that perhaps Pivotal Tracker had too much undue influence on the kernel extension, however, since Pivotal Tracker was modeled to reflect the company's way of working, it should not surprise us that the kernel extension has many similar properties. 
 
 \subsection{Threats to Validity}
 
@@ -347,3 +442,20 @@ Pivotal has 12 offices around the world. The proposed kernel extension can be va
 
 %%
 %% End of file `elsarticle-template-num.tex'.
+
+
+
+
+% "The checkpoints of an alpha state are joined by AND. The state of an alpha is deemed to be the most advanced (favourable) state for which all checkpoints are true." (OMG standard)
+
+% "The checkpoints of a work product level of detail are joined by OR. The level of detail of a work product is deemed to be the most detailed level for which at least one checkpoint is true." (OMG standard)
+
+fullfilledSuccessorLevel: my_LevelOfDetail 􏰃 my_LevelOfDetail fullfilledSuccessorLevel (l) =
+if (l.successor = 􏰌) {l}
+else
+let mc = {c | c 􏰆 s.successor.checkpoints 􏰊 not c.isFullfilled} in (if (mc = 􏰌) {fullfilledSuccessor(s.successor)} else {l})
+
+
+derive_current_state: my_Alpha 􏰃 my_State
+derive_current_state (a) =
+lets={s|s 􏰆 a.states 􏰊 {ps|ps.successor=s}= 􏰌} in fullfilledSuccessorState(s)
