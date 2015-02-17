@@ -139,11 +139,11 @@ Software engineers can struggle with effectively running software projects. Rese
 
 I performed a field study \cite{ICSE2014} that showed that Essence Reflection meetings \cite{EASE2014} using the Essence kernel provide project teams with a simple, lightweight, non-prescriptive and method-agnostic way to examine their projects holistically, structure team reflections, manage risks, monitor progress and steer their projects. The purpose of the field study was to to understand the value project teams receive from following the SEMAT Essence’s monitoring and steering approach provided by the Essence kernel alphas and their states. The two semester field study followed seven master of software engineering teams with no prior knowledge of Essence in a team-based capstone course called, ``Software Engineering Practicum." Compared to the ten previous years, the faculty in charge of the practicum course noted that there was “much better early project organization with a lot less floundering.” Indeed, the approach enabled students to learn to steer projects effectively by addressing the various dimensions of software engineering.
 
-The field study showed that most of the value from the Essence kernel occurs during project startup and initiation and for monitoring and steering the work done at the project or release level \cite{ICSE2014}. This type of work could be qualified as “universal” as it is generally common across projects. This confirms that the kernel provides an effective support for universal work. Support for non-universal technical work should come from additional practices added on top of the kernel, or by extending or altering the kernel definition.
+The field study showed that most of the value from the Essence kernel occurs during project startup and initiation and for monitoring and steering the work done at the project or release level \cite{ICSE2014}. Since the work is done at the project or release level, it could be qualified as “universal” as it is generally common across projects. This confirms that the kernel provides an effective support for universal work. Support for non-universal technical work should come from additional practices added on top of the kernel, or by extending or altering the kernel definition.
 
 Because the Essence kernel is software methodology agnostic, it does not directly provide support for iterative software projects \cite{ICSE2014} and relies on kernel extensions. Students following Scrum did not find following the kernel extension for Scrum to be helpful. Students successfully followed Scrum without any support from the Essence framework.
 
-Pivotal has followed Extreme Programming \cite{ExtremeProgrammingExplained} since the late 1990's. While each team is autonomous in making its own decisions as to what is best for a particular project, the company culture strongly suggests following all of the core practices of Extreme Programming including Pair Programming, Test Driven Development, Weekly Retrospections, Daily Stand-ups, Prioritized Backlog, Whole Team ownership of the project and code base, and Kanban's notion of work flowing through people. 
+Pivotal has followed Extreme Programming \cite{ExtremeProgrammingExplained} since the late 1990's. Pivotal Labs transforms their client's engineering cultures into agile ones by augmenting the client's software engineers with Pivotal's engineers to deliver a software product. For start-ups, Pivotal might be the first engineers working on the project. For enterprise clients, Pivotal provides additional engineering resources to accomplish new business goals or Pivotal helps transform engineering cultures when they no longer routinely deliver code.  While each team is autonomous in making its own decisions as to what is best for a particular project, the company culture strongly suggests following all of the core practices of Extreme Programming including Pair Programming, Test Driven Development, Weekly Retrospections, Daily Stand-ups, Prioritized Backlog, Whole Team ownership of the project and code base, and Kanban's notion of work flowing through people. 
 
 With a stable and consistent way of working, Pivotal provides an research opportunity to demonstrate how a kernel modification or extension could support iterative software development. 
 
@@ -186,21 +186,15 @@ Research Question 5: How does it compare to Scrum?
 
 
 \subsection{Context}
-Pivotal provides a wide range of software development: Cloud Foundry (Platform as a Service),  (Big Data)
+Pivotal provides solutions for cloud-based computing, big data, and agile development. Pivotal Cloud Foundry is an open source Platform as a Service for on-premise or hosted in the cloud. Pivotal Big Data Suite stores and analyzes multiple large data sets using Hadoop, Hawq, and Green Plum. Pivotal Labs provides agile developers and designers for start ups and enterprise companies. Pivotal Labs has offices in San Francisco, Palo Alto, Los Angeles, Boulder, Denver, Chicago, Washingon District of Columbia, Toronto, and London.  
 
-Pivotal Labs provides consulting for start ups and enterprise companies.
+The methodology under study is Extreme Programming. \cite{ExtremeProgrammingExplained} Pivotal Labs has used Extreme Programming since the late 1990s to enable collaborative expriences for Pivotal Labs clients.
 
-For this study, the experience of the participants ranged from 0 to 20 years.
+For this study, the experience of the participants will range from 0 to 20 years of experience in industry. I will select partcipants with at least six months of experience at Pivotal Labs. The size of the projects will range from 4 to 30 engineers.
 
-The methodology under study is Extreme Programming. \cite{ExtremeProgrammingExplained}
+Pivotal created Pivotal Tracker for supporting its software development workflow by capturing key information from product managers, sharing that information with software engineers, and yielding project monitoring for any interested party. Eventually, Pivotal releases Pivotal Tracker for any software company following agile software development.
 
-The size of the projects ranged from 4, 6, 6, and 30 engineers.
-
-The rest of the paper will discuss .... outline.
-
-Pivotal created Pivotal Tracker for supporting its software development workflow by capturing key information from product owners, sharing that information with software engineers, and yielding project monitoring for any interested party.
-
-
+The rest of the paper will discuss the Essence Kernel, my work to date, and Related Studies in the Section \ref{Background}. Background, the research pla, procedure, and participnant selection in Section \ref{FieldStudyPlanning}. FieldStudyPlanning, provide an kernel extension example in Section. \ref{ExpectedResults} Expected Results, discuss the results in Section. \ref{Discussion}, and present conclusions and future work in Section. \ref{Conclusions}.
 
 \section{Background}
 \label{Background}
@@ -222,7 +216,6 @@ After creating a research and educational tool, I collected empirical data on ho
 While the original kernel appears to be descriptive and the kernel does claim to support any software project, in practice, the kernel is a prescriptive representation. First, the kernel is based on expert experience not directly from project data. Second, when discussing potential modifications to the original kernel based on my project data, the kernel committee (what's the official name?) made comments to the effect of ``that's a nice suggestion, but we don't think that would generalize to all projects" and ``that's a nice suggestion, but I want to represent how projects should be run, not how they are actually run." 
 
 \subsection{Alternative Solutions}
-
 
 \subsection{Description of Related Studies}
 
@@ -264,6 +257,7 @@ The work relies on the Task Management Extension defined in the OMG Proposal \ci
 The definition of this the \textbf{Task} alpha is based on human experience and judgement. From Pivotal's perspective, there are issues with this description. Pivotal has no need to track the actual effort of a story. This means that \textit{In Progress} would never be achieved since the fourth checkpoint is never reached. Work on a story can stop and has no correlation witha task being done, in contrast to the first checkpoint of \textit{Done}. 
 
 \section{Field Study Planning} 
+\label{FieldStudyPlanning}
 
 \subsection{Goals}
 The goal is to generate a kernel extension or replacement kernel that models the practices used by product managers and software engineers at Pivotal to manage their projects.
@@ -325,6 +319,7 @@ Participants will not be paid for their time.
 
 % \section{Analysis}
 \section{Expected Results}
+\section{ExpectedResults}
 
 I expect to be able to derive a kernel extension representing Pivotal's approach to iterative software development based upon the  observations and collected data from the previous section.
 
@@ -366,7 +361,9 @@ Figure \ref{KernelExtension} shows the checklists for each of these states. The 
 
 The \textit{Rejected} state happens for a specific reason, thus achieving \textit{any} one of the checkpoint items causes the state to be achieved and the story to be \textit{Rejected}. The kernel would need a fundamental shift to support this since its underlying language requires accomplishing \textit{all} checklists. 
 
-Someone on the kernel author committee might suggest this situation be resolved by replacing the many checkpoints with a single ``the work is rejected" checkpoint. This path is unappealing as the proposed checkpoint both looses interesting information by dumbing-down the model, and simplifies the information into a trivial checkpoint that is redundant with the state's title. Another possible solution is to collapse the many checkpoints into a single statement that says ``A or B or C or D" as in ``the delivered story does not match the acceptance criteria of the story OR the PM updated ... or the PM added ... or the PM changed ... or the PM." This run on sentance makes the checkpoint difficult to read and understand. Neither of these two work-arounds captures what the I have learned: there are typical and common reasons for a story to be rejected, two of which fit Pivotal's accepted flows for the work. 
+Two possible workarounds lose important details and are unappealing. Someone on the kernel author committee might suggest this situation be resolved by replacing the many checkpoints with a single ``the work is rejected" checkpoint. This path is unappealing as the proposed checkpoint both looses interesting information by dumbing-down the model, and simplifies the information into a trivial checkpoint that is redundant with the state's title. Another possible solution is to collapse the many checkpoints into a single statement that says ``A or B or C or D" as in ``the delivered story does not match the acceptance criteria of the story OR the PM updated ... or the PM added ... or the PM changed ... or the PM." This run-on sentance makes the checkpoint difficult to read and understand. 
+
+There are typical and common reasons for a story to be rejected, two of which fit Pivotal's accepted flows for the work. 
 
 %Todo: insert LANGUAGE here?
 
@@ -404,6 +401,8 @@ The two kernel extensions surface whether the Essence kernel should be prescript
 The Essence kernel authors describe the kernel as a prescriptive model. This makes validating the essence kernel with empirical data challenging, as empirical data would want to create a descriptive model that accurately describes what happens on software projects. While the creators designed the kernel to be universal, the alphas lack a maintenance states common to many software projects.
 
 \section{Conclusions and Future Work}
+\label{Conclusions}
+
 \subsection{Summary}
 The original Essence kernel is method agnostic and does not directly support iterative development. During Essence Reflection meetings, student teams using the Essence kernel found value during project inception and start-up and found less value during an iterative construction phase. Since most of agile software development occurs via interactive construction adapting Essence kernel would increase its value to software development teams.
 
