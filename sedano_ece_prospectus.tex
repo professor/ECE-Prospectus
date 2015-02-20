@@ -219,13 +219,14 @@ While the original kernel appears to be descriptive and the kernel does claim to
 
 \subsection{Description of Related Studies}
 
-Elves{\ae}ter et al \cite{Elvesaeter2013} created their own kernel extension for the agile method Scrum \cite{Schwaber2001} by using the Scrum Guides \cite{ScrumGuide} as a source. They compared and contrasted Essence with Software \& Systems Process Engineering Metamodel (SPEM) 2.0. In the example, they break down the work at the Sprint or iteration level. The \textbf{Sprint} sub-alpha extends the \textbf{Work} alpha and has the states \textit{Planned}, \textit{Started}, \textit{Under Control}, \textit{Concluded}, and \textit{Closed}. Each state is defined with its own checkpoint items. The \textbf{Sprint}'s checkpoints are independent of the \textbf{Work}'s checkpoints. A team could progress through one, several, and even every Sprint without achieving all of the Work checkpoint items. For example, the work might never be fully ``broken down into actionable work items with clear definitions of done" until the end of the project. Likewise many agile methods strongly discouraging re-estimating work \cite{} where as the \textbf{Work} alpha includes ``estimates are revised to reflect the team’s performance."  
+Elves{\ae}ter et al \cite{Elvesaeter2013} describe a kernel extension for the agile method Scrum \cite{Schwaber2001} for the purpose of comparing and contrasting Essence with Software \& Systems Process Engineering Metamodel (SPEM) 2.0. The Scrum Guides \cite{ScrumGuide} served as a source definition for Scrum. 
+ In the example, they break down the work at the Sprint or iteration level. The \textbf{Sprint} sub-alpha extends the \textbf{Work} alpha and has the states \textit{Planned}, \textit{Started}, \textit{Under Control}, \textit{Concluded}, and \textit{Closed}. Each state is defined with its own checkpoint items. 
 
-%The Remics-Essence github repository \cite{RemicsEssence} demonstrates the implementation of the Essence kernel by an EFP Composer.
+Since the \textbf{Sprint}'s checkpoints are independent of the \textbf{Work}'s checkpoints, a team could progress through one, several, and even every Sprint without achieving all of the Work checkpoint items. For example, the work might never be fully ``broken down into actionable work items with clear definitions of done" until the end of the project. Likewise many agile methods strongly discouraging re-estimating work \cite{} where as the \textbf{Work} alpha includes the required ``estimates are revised to reflect the team’s performance" checkpoint. 
 
-The work relies on the Task Management Extension defined in the OMG Proposal \cite{OMGStandard}. 
 
-\textbf{Tasks} are the work items to be accomplished during a \textbf{Sprint} that are prioritized in the Product Backlog activity. The \textbf{Task} alpha supports the \textbf{Work} alpha and has three states \textit{Identified}, \textit{In Progress}, and \textit{Done} as described in Figure \ref{TaskDefinition}
+
+The work relies on \textbf{Tasks} in the Task Management Extension defined in the OMG Proposal \cite{OMGStandard}. \textbf{Tasks} are the work items to be accomplished during a \textbf{Sprint} that are prioritized in the Product Backlog activity. The \textbf{Task} alpha supports the \textbf{Work} alpha and has three states \textit{Identified}, \textit{In Progress}, and \textit{Done} as described in Figure \ref{TaskDefinition}
 
 \begin{figure}[h]\vspace*{4pt}
 \caption{Task Definition}\vspace*{-6pt}\label{TaskDefinition}
@@ -254,7 +255,7 @@ The work relies on the Task Management Extension defined in the OMG Proposal \ci
 \end{itemize}
 \end{figure}
 
-The definition of this the \textbf{Task} alpha is based on human experience and judgement. From Pivotal's perspective, there are issues with this description. Pivotal has no need to track the actual effort of a story. This means that \textit{In Progress} would never be achieved since the fourth checkpoint is never reached. Work on a story can stop and has no correlation witha task being done, in contrast to the first checkpoint of \textit{Done}. 
+The definition of the \textbf{Task} alpha is based on human experience and judgement. From Pivotal's perspective, there are issues with this description. Pivotal has no need to track the actual effort of a story. This means that \textit{In Progress} would never be achieved since the fourth checkpoint is never reached. Work on a story can stop and has no correlation witha task being done, in contrast to the first checkpoint of \textit{Done}. 
 
 \section{Field Study Planning} 
 \label{FieldStudyPlanning}
