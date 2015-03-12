@@ -79,7 +79,8 @@
 
 %Todd added this for strikeout \sout{}
 \usepackage[normalem]{ulem}
-
+%Todd added this for the reference to essence.sv.cmu.edu
+\usepackage{hyperref}
 
 
 \journal{Todd Sedano's ECE Prospectus Committee}
@@ -102,19 +103,17 @@
 
 
 \begin{abstract}
-Software development continues to be a complex endeavor involving many disciplines and skill sets. Significant work has attempted to simplify, understand, and create repeatable processes. 
+Software development continues to be a complex endeavor involving many disciplines and skill sets. Practitioners and researchers continue to experiment, research, and adopt practices to simplify, understand, and create repeatable processes. 
 
-The Software Engineering Method and Theory (SEMAT) community created the Essence kernel as a unifying framework for describing and analyzing software engineering endeavors. 
+The Software Engineering Method and Theory (SEMAT) community created the Essence kernel as a unifying framework for describing and analyzing software engineering endeavors. The framework consists of an Essence kernel containing ``universal" project dimensions, states, and checkpoints found on every software engineering project. Practices such as ``Code Review" or ``Pair Programming" specific to certain circumstances are built on top of the kernel. Software methods compose these practices into logical groupings. The SEMAT community claims that Essence helps practioners by providing a rigous foundation and understanding to all software endeavors. 
 
-The Essence kernel is based upon human experience and judgment, not empirical data. 
+At Carnegie Mellon University in Silicon Valley, I conducted a field study with masters of science in software engineering students as they completed a team-based capstone project course using the Essence kernel. During the weekly Essence Reflection meetings, the Essence kernel provided goals for the students to achieve. The student teams found value during project inception, start-up, and project wrap-up. The teams found little value during an iterative construction phase as the Essence kernel offered no new goals. The original Essence kernel is method agnostic and does not directly support iterative development. Since most of agile software development occurs via iterative software development, adapting Essence kernel to have would goals during iterative construction phase would increase its value to software development teams.
 
-At Carnegie Mellon University in Silicon Valley, I conducted a field study that with masters of science in software engineering students as they complete a team-based capstone project course as their practicum project using the Essence kernel. The original Essence kernel is method agnostic and does not directly support iterative development. During this field study's Essence Reflection meetings, student teams using the Essence kernel found value during project inception and start-up and found less value during an iterative construction phase. Since most of agile software development occurs via iterative construction adapting Essence kernel would increase its value to software development teams.
+My next goal is to adapt the Essence kernel for use at Pivotal by providing a kernel extension to match Pivotal's engineering practices. My plan is to conduct participant-observation of several software development projects at Pivotal. I will interview many software engineers and product managers to collect additional data. I'll iterative my research by incorporating this feedback. For validation, I will review the proposed Pivotal Extension with software engineers and product managers. My expected results is a modified kernel or kernel extension grounded in empirical data that supports iterative software development. 
 
-My next goal is to adapt the Essence kernel for use at Pivotal by providing a kernel extension to match Pivotal's engineering practices. My plan is to conduct participant-observation of several software development projects at Pivotal. I will interview many software engineers and product managers to collect additional data. I'll iterative my research by incorporating this feedback. For validation, I will review the proposed Pivotal Extension with software engineers and product managers. My expected results is a modified kernel or kernel extension grounded in empirical data that supports interactive software development. 
+\sout{I have demonstrated that generic algorithms can be used to create kernels from empirical data. I created the Partial Ordering fitness function for evaluating candidate kernels against empirical data. The research shows that alternative structures for the kernel are necessary to best reflect the data.}
 
-I have demonstrated that generic algorithms can be used to create kernels from empirical data. I created the Partial Ordering fitness function for evaluating candidate kernels against empirical data. The research shows that alternative structures for the kernel are necessary to best reflect the data. 
-
-I created a research tool. 
+\sout{I created a research tool.}
 \end{abstract}
 
 \begin{keyword}
@@ -134,10 +133,11 @@ Essence Kernel \sep Empirical Research \sep Iterative Software Development
 \section{Introduction}
 
 \subsection{Problem Statement}
-Software engineers can struggle with effectively running software projects. Researchers and practitioners have examined ways to handle the ``software crisis" since as early as the first Nato Software Engineering Conference in 1968 \cite{Naur1969}. The SEMAT community created Essence (described in more detail in Section \ref{Background}) as a universal framework for any software engineering project.  Software development teams can use Essence Reflection meetings \cite{EASE2014} to track and monitor their progress throughout a software project. 
+Software engineers can struggle with effectively running software projects. Researchers and practitioners have examined ways to handle the ``software crisis" since as early as the first Nato Software Engineering Conference in 1968 \cite{Naur1969}. The SEMAT community created Essence (described in more detail in Section \ref{Method}) as a universal framework for any software engineering project.  Software development teams can use Essence Reflection meetings \cite{EASE2014} to track and monitor their progress throughout a software project. 
 
-\sout{Todo.....}
 \subsection{Research Objective}
+\sout{Update this section}
+
 Following recommendations for reporting research done in the empirical
 software engineering community
 \cite{GQM, Shaw}, I formed the
@@ -157,11 +157,15 @@ in the context of & software development at Pivotal. \\
 \end{tabular}
 \end{table}
 
-\subsection{Background}
-\label{Background}
-
 \subsection{Method under Investigation}
+\label{Method}
+
 The SEMAT community created Essence as a universal framework for any software engineering project. At the core of Essence is a ``kernel of widely-agreed elements'' ~\cite{JacobsonQueue}. This general kernel can theoretically support any kind of software endeavor. A software project can define its software processes by using the general kernel, extending the kernel, or defining additional practices on top of the kernel.
+
+\begin{figure}[h]\vspace*{4pt}
+\centerline{\includegraphics[width=2.2in]{kernel_images/EssenceLayers}}
+\caption{Essence Method Architecture: Methods and Practices are Context Specific and the Kernel is Universal}\vspace*{-6pt}\label{EssenceLayers}
+\end{figure}
 
 The Essence kernel is composed of a set of alphas, alpha states, and alpha state checkpoint items. The Essence kernel defines different characteristics or dimensions of a software project as an ``alpha.'' The seven alphas are \textbf{Stakeholders}, \textbf{Opportunity}, \textbf{Requirements}, \textbf{Software System}, \textbf{Team}, \textbf{Way of Working}, and \textbf{Work}. Essence decomposes each of these alphas into a set of states that represent a simple linear state machine as shown in Figure \ref{StateMachine}. For example, the \textbf{Requirements} alpha advances through the states \textit{Conceived}, \textit{Bounded}, \textit{Coherent}, \textit{Acceptable}, \textit{Addressed}, and \textit{Fulfilled.} Each state has a checkpoint or set of goals. To achieve a state, the project must satisfy every checkpoint item for that state. \cite{OMGStandard} 
  
@@ -170,60 +174,85 @@ The Essence kernel is composed of a set of alphas, alpha states, and alpha state
 \caption{Kernel's linear state machine for Requirements alpha (with Fulfilled checkpoint)}\vspace*{-6pt}\label{StateMachine}
 \end{figure}
 
-\subsection{Summary (better name?)}
+\subsection{Prospectus Outline}
 
-Outline rest of paper
-
-Sections \ref{EssenceReflectionMeetings} through {KernelOptimization} summarize my research to date. Additional details about my previous research can be found in my published papers. The bulk of this prospectus focuses on Section \ref{PivotalKernelExtension} because I would like the committee's input and feedback on the final portion of my research. 
+Sections \ref{EssenceReflectionMeetings} through \ref{KernelOptimization} summarize my research to date. My referenced published papers provide additional detail. Because I value the committee's input and feedback on the final portion of my research, a significant portion of this prospectus focuses on Section \ref{PivotalKernelExtension} . 
 
 In Section \ref{EssenceReflectionMeetings}, I will define Essence Reflection meetings where a facilitator guides a team through the Essence kernel for the purpose of project monitoring and steering. This work was presented at EASE 2014 \cite{EASE2014}.
 
 In Section \ref{CMUFieldStudy}, I summarize a field study's results showing the value in applying Essence Reflection meetings in graduate software engineering program at Carnegie Mellon University in Silicon Valley. This work was presented at ICSE 2014 \cite{ICSE2014}. The field study revealed that the kernel does not reflect incremental progress achieved during construction on iterative projects. Section \ref{PivotalKernelExtension} describes my research plan on addressing this issue.
 
-In Section \ref{EssenceTool}, I describe a web-based tool that I wrote to facilitate data-collection, simplify the introduction of Essence Alphas during Essence Reflection meetings, and aid in analyzing research findings. The tool is available at http:\\esssence.sv.cmu.edu
+In Section \ref{EssenceTool}, I describe a web-based tool that I wrote to facilitate data-collection, simplify the introduction of Essence Alphas during Essence Reflection meetings, and aid in analyzing the collected data. The tool is available at \url{http:\\esssence.sv.cmu.edu}
 
-In Section \ref{KernelOptimization}, I summarize my work in using genetic algorithms to create random kernels. My research shows that kernels with smaller number of alphas result in higher fitness scores than the original kernel. Based on the analysis of the fitness function, a kernel with a fundamentally different structure might more effectively recommend next steps for the team during Essence Reflection Meetings. I presented this work at SCSE 2015.
+In Section \ref{KernelOptimization}, I summarize my work in using genetic algorithms to create random kernels based on empirical data, unlike the original kernel which is based on human experience and judgment. My research shows that kernels with smaller number of alphas result in higher fitness scores than the original kernel. Based on the analysis of the fitness function, a kernel with a fundamentally different structure might more effectively recommend next steps for a team during Essence Reflection meetings. I presented this work at SCSE 2015.
 
-In Section \ref{PivotalKernelExtension}, I outline my research plan for a kernel extension or kernel replacement that supports iterative software development projects. I will use empirical data collected from field observations, participant-observations, and interviews to derive an iterative kernel. 
+In Section \ref{PivotalKernelExtension}, I outline my research plan for a kernel extension or kernel replacement that supports iterative software development projects. I will use empirical data collected from field observations, participant-observation, and interviews to derive an iterative kernel. 
 
-\begin{table}[h]
-\begin{tabular}{|l|l|}
-\hline
-Semester    & Activities and Results  \\ \hline
-Spring 2013 & Research: Facilitated Essence Reflection meetings and collected data for 4 master of software engineering teams. \\ \hline
-Summer 2013 & Research: Facilitated Essence Reflection meetings and collected data for 3 master of software engineering teams.  \\ \hline
-Fall 2013   & Research: Facilitated Essence Reflection meetings and collected data for 11 master of software engineering teams.  \\ \hline
-Spring 2014 & \begin{tabular}[c]{@{}l@{}}Research: Facilitated Essence Reflection meetings and collected data for 2 master of software engineering teams.\\ Phd: Passed the ECE PhD qualifier.\\ Paper: Essence Reflection Meetings: Field Study, EASE 2014.\end{tabular} \\ \hline
-Summer 2014 & \begin{tabular}[c]{@{}l@{}}Research: Facilitated Essence Reflection meetings and collected data for 3 master of software engineering teams.\\ Paper: State-based Monitoring and Goal-driven Project Steering: Field Study of the SEMAT Essence Framework, ICSE 2014.\end{tabular} \\ \hline
-Fall 2014   & Research: Collected data from Participant-Observation on two projects at Pivotal Labs.  \\ \hline
-Spring 2015 & \begin{tabular}[c]{@{}l@{}}Research: Collected data from Participant-Observation on one project at Pivotal Labs.\\ Paper: Towards Generating Essence Kernels Using Genetic Algorithms, SCSE 2015.\\ Tutorial: Using Essence Reflection Meetings in Team-Based Project Courses, SCSE 2015.\end{tabular} \\ \hline
-Summer 2015 & \begin{tabular}[c]{@{}l@{}}Research: Kernel extension for iterative software projects.\\ Workshop: Essence in Team-Based Project Courses, CSEE\&T 2015. \end{tabular} \\ \hline                     
-\end{tabular}
-\end{table}
 
 \section{Essence Reflection Meetings}
 \label{EssenceReflectionMeetings}
 
-\sout{Fill in details}
+The EASE 2014 paper presents an empirical evaluation of the team reflection support provided by the Essence framework, and compares Essence reflection meetings to other types of team reflection meetings.
+
+Essence Reflection meetings are an alternative to Agile retrospection or weekly status meetings. 
+
+During an Essence Reflection meeting, a team systematically uses the Essence kernel to identify where they are in the project, identity next possible goals, and generate action items to achieve those goals. 
+
+For each alpha, team members ...
+\begin{enumerate}
+\item Read Alpha State Checklists
+\item Identify Current State
+    \begin{itemize}
+    \item Individually and silently determine the current state
+    \item When ready, all reveal their state at same time.
+    \item Discuss differences of opinion until agreement is reached.
+    \item Record current state
+    \end{itemize}
+\item Perform Root Cause Analysis
+    \begin{itemize}
+    \item Discuss why the target state is not achieved.
+    \end{itemize}
+\item Determine Action Items    
+\end{enumerate}
+
+￼The team members step back from their daily tasks, come together as a team, and look 
+at the project holistically based on the seven alphas.
+
+The team monitors its progress by identifying the current state of each alpha. 
+
+￼The team sets the project direction by identifying the target state for each alpha. Following a discussion focusing on why a target state is not achieved, the team sets the goals to reach that state. The goals are selected out of the target state checklist.
+
+The team decides how to reach the goals associated to each target state by defining some specific work items. The kernel does not.
+
+The identified work items have been added to the team’s work item list or backlog. The team members return to their office space and start working on the work item. 
+
+After awhile (typically a week in our case), the team regroups again, and looks at the project holistically based on the seven project dimensions. This is an iterative process allowing the team to monitor and steer the project towards higher states.
+
+I created Essence Reflection meeting as pragmatic re-framing of an idea found in Chapter 8 of \underline{The Essence of Software Engineering} \cite{EssenceBook}. The original idea suggested that a team meeting meet at the beginning of an iteration, identity which state cards to achieve at the end of the iteration, and identity tasks to put in the backlog. Instead, in my approach, there is no expectation that any state would be accomplished by the end of an iteration. Goals are identified to achieve in the future. Action items generated in this meeting might not be appropriate for a software development backlog, and thus are treated separately from tasks. I further refine the activity to have explicit root cause analysis steps. 
 
 \section{Kernel Evaluation in Academic Graduate Programs}
 \label{CMUFieldStudy}
-I performed a field study \cite{ICSE2014} that showed that Essence Reflection meetings \cite{EASE2014} using the Essence kernel provide project teams with a simple, lightweight, non-prescriptive and method-agnostic way to examine their projects holistically, structure team reflections, manage risks, monitor progress and steer their projects. The purpose of the field study was to to understand the value project teams receive from following the SEMAT Essence’s monitoring and steering approach provided by the Essence kernel alphas and their states. The two semester field study followed seven master of software engineering teams with no prior knowledge of Essence in a team-based capstone course called, ``Software Engineering Practicum." Compared to the ten previous years, the faculty in charge of the practicum course noted that there was “much better early project organization with a lot less floundering.” Indeed, the approach enabled students to learn to steer projects effectively by addressing the various dimensions of software engineering.
+I performed a field study \cite{ICSE2014} that showed that Essence Reflection meetings \cite{EASE2014} using the Essence kernel provide project teams with a simple, lightweight, non-prescriptive and method-agnostic way to examine their projects holistically, structure team reflections, manage risks, monitor progress and steer their projects. The purpose of the field study was to to understand the value project teams receive from following the SEMAT Essence’s monitoring and steering approach provided by the Essence kernel alphas and their states. The two semester field study followed seven master of software engineering teams with no prior knowledge of Essence in a team-based capstone course called, ``Software Engineering Practicum." Compared to the ten previous years, the faculty in charge of the practicum course noted that there was ``much better early project organization with a lot less floundering." Indeed, the approach enabled students to learn to steer projects effectively by addressing the various dimensions of software engineering.
 
-The field study showed that most of the value from the Essence kernel occurs during project startup and initiation and for monitoring and steering the work done at the project or release level \cite{ICSE2014}. Since the work is done at the project or release level, it could be qualified as “universal” as it is generally common across projects. This confirms that the kernel provides an effective support for universal work. Support for non-universal technical work should come from additional practices added on top of the kernel, or by extending or altering the kernel definition.
+The field study showed that most of the value from the Essence kernel occurs during project startup and initiation and for monitoring and steering the work done at the project or release level \cite{ICSE2014}. Since the work is done at the project or release level, it could be qualified as ``universal" as it is generally common across projects. This confirms that the kernel provides an effective support for universal work. Support for non-universal technical work should come from additional practices added on top of the kernel, or by extending or altering the kernel definition.
 
 \section{Kernel Support and Tooling}
 \label{EssenceTool}
-I created a research and educational tool for the purpose of increasing the efficiency of Essence Reflection Meetings, decreasing training time, and streamlining data collection. Initially, I would print out the alphas and using a paper cutter, cut out each individual state card for each alpha. This was time consuming and laborious. When transporting the cards, I had to be careful not to mix them up. Then handing out a set of cards to each team member was tediuos. (insert photo) In the next semester, I would print out on legal paper a full strip of alpha cards. (insert photo), cutting continued to be time consuming. For distributed teams we used google documents' diagrams, but it was slow and tedious to zoom in and zoom out (insert picture). For data entry we used google spreadsheets to capture which checklists the students achieved each week. Once the semester was over we would convert this data into different representations to create graphs to show team progress through the semester and to help us analyze the data.  
+I created a research tool for supporting team-based software development for the purpose of increasing the efficiency of Essence Reflection Meetings, decreasing training time, and streamlining data collection. A screen-shot of the tool is shown in Figure \ref{EssenceToolScreenshot}. Before the tool existed, I would print out the alphas and using a paper cutter, cut out each individual state card for each alpha. This was time consuming and laborious. Transporting and handing out a set of cards to each team member was tedious as I had to be careful not to mix them up. (insert photo) In the next semester, I printed out a full strip of alpha cards on legal paper. See Figure \ref{AlphaStrip}, cutting continued to be time consuming. For distributed teams we used google documents' diagrams, but it was slow and tedious to zoom in and zoom out (insert picture). For data entry we used google spreadsheets to capture which checklists the students achieved each week. Once the semester was over we would convert this data into different representations to create graphs to show team progress through the semester and to help us analyze the data.  
 
+\begin{figure}[ht]
+\includegraphics[width=6.15in]{tool_photos/tool_photo}
+\caption{Essence Kernel Tool for Essence Reflection Meetings}
+\label{EssenceToolScreenshot}
+\end{figure}
 
-\begin{figure*}[ht]
+\begin{figure}[ht]
 \includegraphics[width=6.15in]{student_photos/team_1}
 \caption{Student Team using an Alpha Strip during an Essence Reflection Meeting}
 \label{AlphaStrip}
-\end{figure*}
+\end{figure}
 
-The tool enabled us to streamline the entire process. A faculty member log ins in, creates a team, and add each student member to the team prior to the first Essence Reflection meeting. During the first meeting, one member of the team could log in and show the first alpha on a projector or TV screen in a conference room. The tool helps the student focus on the kernel, one alpha at a time. Before where the data was presented and where the data was collected were different places. The tool allows kernel viewing and data collection to happen at the same place. Once the team is done entering their information, the "done" button emails everyone on the team including the faculty member the team's current status for each alpha, all captured notes, and a list of action items for the team to accomplish. 
+The tool enabled us to streamline the entire process. Prior to the first Essence Reflection meeting, a faculty member log ins in, creates a team, and adds each student member to the team. During the first meeting, one team member shows the first alpha on a projector or TV screen in a conference room. The tool helps the team focus on the kernel, one alpha at a time. Before the data was presented on a sheet of paper and the data was collected in a spreadsheet; now the tool allows kernel viewing and data collection to happen at the same place. Once the team is done entering their information, the "done" button emails everyone on the team including the faculty member the team's current status for each alpha, all captured notes, and a list of action items for the team to accomplish. 
 
 I conducted usability testing on the tool and incorporated the feedback into the tool. This enabled me to improve the tool's usefulness and reduce issues for novice users. 
 
@@ -258,15 +287,18 @@ Research Question 5: How does it compare to Scrum?
 \subsection{Context}
 Pivotal provides solutions for cloud-based computing, big data, and agile development. Pivotal Cloud Foundry is an open source Platform as a Service for on-premise or hosted in the cloud. Pivotal Big Data Suite stores and analyzes multiple large data sets using Hadoop, Hawq, and Green Plum. Pivotal Labs provides agile developers and designers for start ups and enterprise companies. Pivotal Labs has offices in San Francisco, Palo Alto, Los Angeles, Boulder, Denver, Chicago, Washington District of Columbia, Toronto, and London.  
 
-The methodology under study is Extreme Programming. \cite{ExtremeProgrammingExplained} Pivotal Labs has used Extreme Programming since the late 1990s to enable collaborative expriences for Pivotal Labs clients.
+The methodology under study is Extreme Programming. \cite{ExtremeProgrammingExplained} Pivotal Labs has used Extreme Programming since the late 1990s to enable collaborative experiences for Pivotal Labs clients.
 
 For this study, the experience of the participants will range from 0 to 20 years of experience in industry. I will select participants with at least six months of experience at Pivotal Labs. The size of the projects will range from 4 to 30 engineers.
 
 Pivotal created Pivotal Tracker for supporting its software development workflow by capturing key information from product managers, sharing that information with software engineers, and yielding project monitoring for any interested party. Eventually, Pivotal releases Pivotal Tracker for any software company following agile software development.
 
-The rest of the paper will discuss the Essence Kernel, my work to date, and Related Studies in the Section \ref{Background}. Background, the research pla, procedure, and participnant selection in Section \ref{FieldStudyPlanning}. FieldStudyPlanning, provide an kernel extension example in Section. \ref{ExpectedResults} Expected Results, discuss the results in Section. \ref{Discussion}, and present conclusions and future work in Section. \ref{Conclusions}.
+Section \ref{FieldStudyPlanning} \textit{Field Study Planning}, describes the research plan, procedure, and participant selection. Section. \ref{ExpectedResults} \textit{Expected Results}, provides an kernel extension example. Section \ref{Discussion} \textit{Example Discussion}, discusses the results. 
+%Section. \ref{Conclusions} presents conclusions and future work.
 
 \subsection{Description of Related Studies}
+
+\textbf{I'm currently planning to comment out this section.}
 
 Elves{\ae}ter et al \cite{Elvesaeter2013} describe a kernel extension for the agile method Scrum \cite{Schwaber2001} for the purpose of comparing and contrasting Essence with Software \& Systems Process Engineering Metamodel (SPEM) 2.0. The Scrum Guides \cite{ScrumGuide} served as a source definition for Scrum. 
  In the example, they break down the work at the Sprint or iteration level. The \textbf{Sprint} sub-alpha extends the \textbf{Work} alpha and has the states \textit{Planned}, \textit{Started}, \textit{Under Control}, \textit{Concluded}, and \textit{Closed}. Each state is defined with its own checkpoint items. 
@@ -449,6 +481,28 @@ The original Essence kernel is method agnostic and does not directly support ite
 \subsection{Expected Impact}
 A kernel extension for iterative software development would enable teams to find value from Essence during construction phases of a project.
 
+
+\appendix
+\section{Research Timeline}
+\label{appendix}
+
+\begin{table}[h]
+\caption{Research Timeline}
+\label{ResearchTimeline}
+\centering
+\begin{tabular}{|l|l|}
+\hline
+Semester    & Activities and Results  \\ \hline
+Spring 2013 & Research: Facilitated Essence Reflection meetings and collected data for 4 master of software engineering teams. \\ \hline
+Summer 2013 & Research: Facilitated Essence Reflection meetings and collected data for 3 master of software engineering teams.  \\ \hline
+Fall 2013   & Research: Facilitated Essence Reflection meetings and collected data for 11 master of software engineering teams.  \\ \hline
+Spring 2014 & \begin{tabular}[c]{@{}l@{}}Research: Facilitated Essence Reflection meetings and collected data for 2 master of software engineering teams.\\ Phd: Passed the ECE PhD qualifier.\\ Paper: Essence Reflection Meetings: Field Study, EASE 2014.\end{tabular} \\ \hline
+Summer 2014 & \begin{tabular}[c]{@{}l@{}}Research: Facilitated Essence Reflection meetings and collected data for 3 master of software engineering teams.\\ Paper: State-based Monitoring and Goal-driven Project Steering: Field Study of the SEMAT Essence Framework, ICSE 2014.\end{tabular} \\ \hline
+Fall 2014   & Research: Collected data from Participant-Observation on two projects at Pivotal Labs.  \\ \hline
+Spring 2015 & \begin{tabular}[c]{@{}l@{}}Research: Collected data from Participant-Observation on one project at Pivotal Labs.\\ Paper: Towards Generating Essence Kernels Using Genetic Algorithms, SCSE 2015.\\ Tutorial: Using Essence Reflection Meetings in Team-Based Project Courses, SCSE 2015.\end{tabular} \\ \hline
+Summer 2015 & \begin{tabular}[c]{@{}l@{}}Research: Kernel extension for iterative software projects.\\ Workshop: Essence in Team-Based Project Courses, CSEE\&T 2015. \end{tabular} \\ \hline                     
+\end{tabular}
+\end{table}
 
 %% References
 %%
