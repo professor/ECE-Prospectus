@@ -258,15 +258,27 @@ I conducted usability testing on the tool and incorporated the feedback into the
 
 \section{Kernel Optimization}
 \label{KernelOptimization}
-After creating a research and educational tool described in Section \ref{EssenceTool}, I collected empirical data on how teams progress through the Essence kernel during their project. I leveraged genetic algorithms to generate candidate replacement kernels by using a fitness function based on empirical data. When the SEMAT community created the Essence kernel, they relied upon human experience and judgment to select the alphas, states, and checklists. Essence is not grounded by empirical data. The generated kernels outscored the original. The purpose of that exploratory work was to demonstrate one way to generate a candidate Essence kernel directly from empirical data, not to recommend a replacement for the original Essence kernel. \cite{SCSE2015}
+I leveraged genetic algorithms to generate candidate replacement kernels based on empirical data. \cite{SCSE2015} After creating a research and educational tool described in Section \ref{EssenceTool}, I collected empirical data on how teams progress through the Essence kernel during their project. I created the Partial Order fitness function to evaluate how well a candidate kernel explains the empirical data. The fitness function rewards kernels that sequence checkpoints in the same order that teams accomplish them. 
 
-While the original kernel appears to be descriptive and the kernel does claim to support any software project, in practice, the kernel is a prescriptive representation. First, the kernel is based on expert experience not directly from project data. Second, when discussing potential modifications to the original kernel based on my project data, the kernel committee (what's the official name?) made comments to the effect of ``that's a nice suggestion, but we don't think that would generalize to all projects" and ``that's a nice suggestion, but I want to represent how projects should be run, not how they are actually run." 
+I created a genetic program that initialize a population with random permutations of the existing kernel and then would evolve the members of this population by randomly re-arranging checklist items using three different operators:
+
+\begin{itemize}
+\item ``Move checklist item" operator randomly selects a checklist item and moves it to a different state. If the new state has more than eight checklist items, the code automatically splits that state into two states using the ``split state" operator. The genetic program choose this operator 80\% of the time.
+\item ``Split state" operator randomly selects a state and subdivides it by creating a new subsequent state and moves half of the checklist items to the new state. The genetic program choose this operator 10\% of the time.
+\item ``Delete state" operator randomly deletes a state by moving all of its checklist items randomly to other states. The genetic program choose this operator 10\% of the time.
+\end{itemize}
+
+The generated kernels outscored the original kernel. When the SEMAT community created the Essence kernel, they relied upon human experience and judgment to select the alphas, states, and checklists. Essence is not grounded by empirical data. The purpose of that exploratory work was to demonstrate one way to generate a candidate Essence kernel directly from empirical data, not to recommend a replacement for the original Essence kernel. 
+
+I analyzed the kernel search space and discovered that, in general, kernels utilizing less alphas scored better than kernels utilizing more alphas. A genetic algorithm starting with eight alphas would evolve to use less and less of them, with the best scoring candidate kernel only using one alpha. This means that during an Essence Reflection meeting, with one alpha, teams need only consider a handful of next goals. Imagine a team meeting with the perfect oracle. Once describing current state, the oracle suggests several possible goals. Creating such an oracle may require a fundamental shift in the data representation of the Essence kernel. 
+
+%While the original kernel appears to be descriptive and the kernel does claim to support any software project, in practice, the kernel is a prescriptive representation. First, the kernel is based on expert experience not directly from project data. Second, when discussing potential modifications to the original kernel based on my project data, the kernel committee (what's the official name?) made comments to the effect of ``that's a nice suggestion, but we don't think that would generalize to all projects" and ``that's a nice suggestion, but I want to represent how projects should be run, not how they are actually run." 
 
 \section{Kernel Extension in Industry}
 \label{PivotalKernelExtension}
-Because the Essence kernel is software methodology agnostic, it does not directly provide support for iterative software projects \cite{ICSE2014} and relies on kernel extensions. Students following Scrum did not find following the kernel extension for Scrum to be helpful. Students successfully followed Scrum without any support from the Essence framework.
+By design, the Essence kernel does not directly provide support for iterative software projects because one of its design goals is to be software method agnostic.\cite{ICSE2014} Thus the Essence kernel relies on kernel extensions to support iterative software practices. Interestingly, students following Scrum did not find following the kernel extension for Scrum to be helpful. The students teams routinely follow Scrum successfully without any support from the Essence framework. Is it possible to modify the Essence kernel to provide value during the iterative construction phase?
 
-Pivotal has followed Extreme Programming \cite{ExtremeProgrammingExplained} since the late 1990's. Pivotal Labs transforms their client's engineering cultures into agile ones by augmenting the client's software engineers with Pivotal's engineers to deliver a software product. For start-ups, Pivotal might be the first engineers working on the project. For enterprise clients, Pivotal provides additional engineering resources to accomplish new business goals or Pivotal helps transform engineering cultures when they no longer routinely deliver code.  While each team is autonomous in making its own decisions as to what is best for a particular project, the company culture strongly suggests following all of the core practices of Extreme Programming including Pair Programming, Test Driven Development, Weekly Retrospections, Daily Stand-ups, Prioritized Backlog, Whole Team ownership of the project and code base, and Kanban's notion of work flowing through people. 
+Pivotal has followed Extreme Programming \cite{ExtremeProgrammingExplained} since the late 1990's. Pivotal Lab's mission is to both deliver highly-crafted software products and provide a transformative experience for their client's engineering cultures. Pivotal creates software teams by combinging client's software engineers with Pivotal's engineers to deliver a software product. This experience is similar to the creation of the Nummi plant where General Motors sent workers to Japan to learn Toyota's Production System \cite{Nummi}. For start-ups, Pivotal might be the first engineers working on the project. For enterprise clients, Pivotal provides additional engineering resources to accomplish new business goals. Sometimes, Pivotal helps transform engineering cultures when they no longer routinely deliver code.  While each team is autonomous in making its own decisions as to what is best for a particular project, the company culture strongly suggests following all of the core practices of Extreme Programming including Pair Programming, Test Driven Development, Weekly Retrospections, Daily Stand-ups, Prioritized Backlog, Whole Team ownership of the project and code base, and Kanban's notion of work flowing through people. 
 
 With a stable and consistent way of working, Pivotal provides an research opportunity to demonstrate how a kernel modification or extension could support iterative software development. 
 
@@ -490,19 +502,27 @@ A kernel extension for iterative software development would enable teams to find
 \caption{Research Timeline}
 \label{ResearchTimeline}
 \centering
-\begin{tabular}{|l|l|}
+%\begin{tabular}{|l|l|}
+\begin{tabular}{|p{1.00in}|p{5.00in}|}
 \hline
 Semester    & Activities and Results  \\ \hline
 Spring 2013 & Research: Facilitated Essence Reflection meetings and collected data for 4 master of software engineering teams. \\ \hline
 Summer 2013 & Research: Facilitated Essence Reflection meetings and collected data for 3 master of software engineering teams.  \\ \hline
 Fall 2013   & Research: Facilitated Essence Reflection meetings and collected data for 11 master of software engineering teams.  \\ \hline
-Spring 2014 & \begin{tabular}[c]{@{}l@{}}Research: Facilitated Essence Reflection meetings and collected data for 2 master of software engineering teams.\\ Phd: Passed the ECE PhD qualifier.\\ Paper: Essence Reflection Meetings: Field Study, EASE 2014.\end{tabular} \\ \hline
-Summer 2014 & \begin{tabular}[c]{@{}l@{}}Research: Facilitated Essence Reflection meetings and collected data for 3 master of software engineering teams.\\ Paper: State-based Monitoring and Goal-driven Project Steering: Field Study of the SEMAT Essence Framework, ICSE 2014.\end{tabular} \\ \hline
+Spring 2014 & Research: Facilitated Essence Reflection meetings and collected data for 2 master of software engineering teams.\\ 
+            & Phd: Passed the ECE PhD qualifier.\\ 
+            & Paper: Essence Reflection Meetings: Field Study, EASE 2014. \\ \hline
+Summer 2014 & Research: Facilitated Essence Reflection meetings and collected data for 3 master of software engineering teams.\\ 
+            & Paper: State-based Monitoring and Goal-driven Project Steering: Field Study of the SEMAT Essence Framework, ICSE 2014. \\ \hline
 Fall 2014   & Research: Collected data from Participant-Observation on two projects at Pivotal Labs.  \\ \hline
-Spring 2015 & \begin{tabular}[c]{@{}l@{}}Research: Collected data from Participant-Observation on one project at Pivotal Labs.\\ Paper: Towards Generating Essence Kernels Using Genetic Algorithms, SCSE 2015.\\ Tutorial: Using Essence Reflection Meetings in Team-Based Project Courses, SCSE 2015.\end{tabular} \\ \hline
-Summer 2015 & \begin{tabular}[c]{@{}l@{}}Research: Kernel extension for iterative software projects.\\ Workshop: Essence in Team-Based Project Courses, CSEE\&T 2015. \end{tabular} \\ \hline                     
+Spring 2015 & Research: Collected data from Participant-Observation on one project at Pivotal Labs.\\ 
+            & Paper: Towards Generating Essence Kernels Using Genetic Algorithms, SCSE 2015.\\ 
+            & Tutorial: Using Essence Reflection Meetings in Team-Based Project Courses, SCSE 2015. \\ \hline
+Summer 2015 & Research: Kernel extension for iterative software projects.\\ 
+            & Workshop: Essence in Team-Based Project Courses, CSEE\&T 2015. \\ \hline                     
 \end{tabular}
 \end{table}
+
 
 %% References
 %%
