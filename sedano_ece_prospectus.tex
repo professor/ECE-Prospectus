@@ -81,6 +81,8 @@
 \usepackage[normalem]{ulem}
 %Todd added this for the reference to essence.sv.cmu.edu
 \usepackage{hyperref}
+%Todd added this to fix tables with an H
+\usepackage{float}
 
 
 \journal{Todd Sedano's ECE Prospectus Committee}
@@ -89,7 +91,7 @@
 
 \begin{frontmatter}
 
-\title{Empirical Study of Agile Software Development in Academia and Industry: Effectiveness, Optimization, and Extension of Essence Kernel}
+\title{Empirical Study of Iterative Software Development in Academia and Industry: Effectiveness, Optimization, and Extension of Essence Kernel}
 
 \author{Todd Sedano}
 \ead{professor@gmail.com}
@@ -103,17 +105,19 @@
 
 
 \begin{abstract}
-Software development continues to be a complex endeavor involving many disciplines and skill sets. Practitioners and researchers continue to experiment, research, and adopt practices to simplify, understand, and create repeatable processes. 
+Software development continues to be a complex endeavor involving many disciplines and skill sets. Practitioners and researchers experiment, research, and adopt practices to simplify, understand, and create effective processes. 
 
-The Software Engineering Method and Theory (SEMAT) community created the Essence kernel as a unifying framework for describing and analyzing software engineering endeavors. The framework consists of an Essence kernel containing ``universal" project dimensions, states, and checkpoints found on every software engineering project. Practices such as ``Code Review" or ``Pair Programming" specific to certain circumstances are built on top of the kernel. Software methods compose these practices into logical groupings. The SEMAT community claims that Essence helps practitioners by providing a rigorous foundation and understanding to all software endeavors. 
+Given the plethora of practices and methods, the Software Engineering Method and Theory (SEMAT) community created the Essence kernel as a unifying framework for describing and analyzing software engineering endeavors. 
 
-At Carnegie Mellon University in Silicon Valley, I conducted a field study with masters of science in software engineering students as they completed a team-based capstone project course using the Essence kernel. During the weekly Essence Reflection meetings, the Essence kernel provided goals for the students to achieve. The student teams found value during project inception, start-up, and project wrap-up. The teams found little value during an iterative construction phase as the Essence kernel offered no new goals. The original Essence kernel is method agnostic and does not directly support iterative development. Since most of agile software development occurs via iterative software development, adapting Essence kernel to have would goals during iterative construction phase would increase its value to software development teams.
+My research goal is to evaluate the Essence kernel for practical use on academic and industrial software development projects, identify issues, and research solutions grounded in empirical evidence. 
 
-My next goal is to adapt the Essence kernel for use at Pivotal by providing a kernel extension to match Pivotal's engineering practices. My plan is to conduct participant-observation of several software development projects at Pivotal. I will interview many software engineers and product managers to collect additional data. I'll iterative my research by incorporating this feedback. For validation, I will review the proposed Pivotal Extension with software engineers and product managers. My expected results is a modified kernel or kernel extension grounded in empirical data that supports iterative software development. 
+At Carnegie Mellon University in Silicon Valley, I conducted a field study with masters of science in software engineering students as they completed a team-based capstone project course using the Essence kernel. During the weekly Essence Reflection meetings, the Essence kernel checkpoints provided goals for the students to achieve as the goals were relevant and helped the team steer the project to higher states. The student teams found value during project inception. The teams found less value during an iterative construction phase as the Essence kernel offered few new goals hence loosing its ability to help the team steer the project. The original Essence kernel is method agnostic and does not directly support iterative development. Since most of agile software development occurs via iterative software development, adapting Essence kernel to have goals during iterative construction phase would increase its value to software development teams.
 
-\sout{I have demonstrated that generic algorithms can be used to create kernels from empirical data. I created the Partial Ordering fitness function for evaluating candidate kernels against empirical data. The research shows that alternative structures for the kernel are necessary to best reflect the data.}
+Following these initial results in academia, my objective is to continue my research in industry, with a focus on Pivotal. One of my next goals is to adapt the Essence kernel for use at Pivotal by providing a kernel extension that matches Pivotal's engineering experiences and practices. My plan is to conduct participant-observation of several software development projects at Pivotal. I will interview many software engineers and product managers to collect additional data. I'll iterate my research by incorporating this feedback. My expected results is a modified kernel or kernel extension grounded in empirical data that supports iterative software development. 
 
-\sout{I created a research tool.}
+%I have demonstrated that generic algorithms can be used to create kernels from empirical data. I created the Partial Ordering fitness function for evaluating candidate kernels against empirical data. The research shows that alternative structures for the kernel are necessary to best reflect the data.
+
+%I created a research tool.
 \end{abstract}
 
 \begin{keyword}
@@ -133,18 +137,22 @@ Essence Kernel \sep Empirical Research \sep Iterative Software Development
 \section{Introduction}
 
 \subsection{Problem Statement}
-Software engineers can struggle with effectively running software projects. Researchers and practitioners have examined ways to handle the ``software crisis" since as early as the first Nato Software Engineering Conference in 1968 \cite{Naur1969}. The SEMAT community created Essence (described in more detail in Section \ref{Method}) as a universal framework for any software engineering project.  Software development teams can use Essence Reflection meetings \cite{EASE2014} to track and monitor their progress throughout a software project. 
+Software engineers often struggle to effectively run software projects. Researchers and practitioners have examined ways to handle the ``software crisis" since as early as the first Nato Software Engineering Conference in 1968 \cite{Naur1969}. 
+
+Engineers address the complexity of software development with practices and methods that guide the development process. Practices, such as formal code inspection, are activities performed by a practitioner to achieve desired outcomes. Methods, such as the Rational Unified Process (RUP), are a set of synergistic, cooperating practices combined with a lifecycle such as waterfall, iterative, or incremental.
 
 \subsection{Research Objective}
-\sout{Update this section}
+In response to an increasing number of practices and methods for software development and a lack of underlying theory of software engineering, the SEMAT community released the “Essence: Kernel and Language” as a potential unifying theory  ~\cite{OMGStandard}. (Section \ref{Method} describes Essence in more detail.) 
 
-Following recommendations for reporting research done in the empirical
+The ``The Essence of Software Engineering: The SEMAT Kernel'' paper ~\cite{JacobsonQueue} describes the Essence kernel which allows practitioners to map practices and methods to a set of common dimensions of software projects. The framework consists of an Essence kernel containing ``universal" project dimensions, states, and checkpoints applicable to every software engineering project. Practices specific to certain circumstances are built on top of the kernel. Practices are then combined to define software development methods. The SEMAT community claims that Essence helps practitioners by providing a rigorous foundation and understanding for any software endeavor. The “universal” Essence kernel aims at providing a “common ground” for all software development endeavors ~\cite{JacobsonQueue}. Software development teams can use Essence to monitor their progress and steer their project throughout a software project. 
+
+My first goal is to evaluate the effectiveness of this approach. Following recommendations for reporting research done in the empirical
 software engineering community
 \cite{GQM, Shaw}, I formed the
 research goal using Goal/Question/Metric:
 \cite{GQM}
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabular}{|p{2.00in}|p{4.10in}|}
 \hline
@@ -157,29 +165,53 @@ in the context of & software development in academia at Carnegie Mellon Universi
 \end{tabular}
 \end{table}
 
+After identifying an issue with the kernel's support of iterative software projects, my next goal is to: 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2.00in}|p{4.10in}|}
+\hline
+Analyze & iterative software projects  \\ \hline
+for the purpose of & creating a kernel modification  \\ \hline
+with respect to its & accuracy in describing empirical data \\ \hline
+from the point of view of the & software development team and researcher \\ \hline
+in the context of & software development in industry at Pivotal. \\
+\hline
+\end{tabular}
+\end{table}
+
+This kernel modification from observations in industry could then be helpful for team-based software courses in academia.
+
 \subsection{Research Significance}
 
-The Essence creators claim that it provides support and value to any software engineering project. While the Essence authors have published many papers explaining and promoting the Essence kernel, there is no empirical research validating any of the claims. My ICSE 2014 paper provides empirical evidence that the Essence kernel does provides value in the context of master students working on a team-based capstone software project course. Given the issue with adding value during iterative software development, finding a solution would be incredibly valueable to the SEMAT community.
+The Essence creators claim that Essence provides support to any software engineering project. Several authors have published papers explaining and promoting the Essence kernel \cite{CallToAction, JacobsonQueue, OMGStandard,  AgileSEMAT, EssenceBook, JacobsonMajorLeaugue, JacobsonNewSoftwareEngineering}. Currently there is anecdotal evidence supporting that the Essence kernel  supports software projects. My ICSE 2014 paper provides empirical evidence that the Essence kernel does provides value in the context of master students working on a team-based capstone software project course. 
+The paper also shows that the approach's ability to steer iterative projects is decreased during the construction phase. Since projects can spend the majority of their time in construction, discovering a solution to this problem would increase the value of the approach dramatically and make it relevant to a broader community including many software development teams working on iterative projects.
 
+\subsection{Research Contributions and Plan}
+% Here are some of my contributions so far:
+% \begin{enumerate}
+% \item I formalized project steering process based on the Essence kernel called Essence Reflection meetings \cite{};
+% \item I evaluated Essence Reflection meetings against other Agile reflection meetings \cite{};
+% \item  I utilized Essence Reflection meetings with software development teams to elicit the value of the Essence kernel for a student team-based project course \cite{};
+% \item  I created a web-based tool to aid in data collection and running Essence Reflection meetings \cite{};
+% \item I demonstrated a way to create and optimize alternative Essence kernels directly from empirical data \cite{};
+% \item and I plan to create and evaluate a kernel extension for iterative software development in industry.
+% \end{enumerate}   
 
-\subsection{Research Method / Prospective Outline}
+I conducted a field study to identify the value in applying the Essence kernel in graduate software engineering program at Carnegie Mellon University in Silicon Valley. The field study revealed that the Essence kernel provides value to teams during project inception but does not reflect incremental progress achieved during construction on iterative projects. This work was presented at ICSE 2014 \cite{ICSE2014}. I summarize the field study's results in Section \ref{CMUFieldStudy}.
 
-\sout{First, I summarize my research to date in Sections \ref{EssenceReflectionMeetings} through \ref{KernelOptimization}, then I describe the remainder of my research in Section \ref{PivotalKernelExtension}.}
-
-I defined Essence Reflection meetings where a facilitator guides a team through the Essence kernel for the purpose of project monitoring and steering. I compared and contrasted Essence Reflection meetings with other Agile reflection meetings. This work was presented at EASE 2014 \cite{EASE201}4 and is summarized in Section \ref{EssenceReflectionMeetings}.
-
-I conducted a field study to identify the value in applying Essence Reflection meetings in graduate software engineering program at Carnegie Mellon University in Silicon Valley. The field study revealed that the kernel does not reflect incremental progress achieved during construction on iterative projects. Section \ref{PivotalKernelExtension} describes my research plan on addressing this issue. This work was presented at ICSE 2014 \cite{ICSE2014}. I summarize the field study's results in Section \ref{CMUFieldStudy}.
+I defined Essence Reflection meetings where a facilitator guides a team through the Essence kernel for the purpose of project monitoring and steering. The Essence Reflection meeting process emerged from the field study. I compared and contrasted Essence Reflection meetings with other Agile reflection meetings. This work was presented at EASE 2014 \cite{EASE2014} and is summarized in Section \ref{EssenceReflectionMeetings}.
 
 I created a web-based tool to facilitate data-collection, simplify the introduction of Essence Alphas during Essence Reflection meetings, and aid in analyzing the collected data. The tool is available at \url{http:\\esssence.sv.cmu.edu} and is described in Section \ref{EssenceTool}.
 
-I programmed a genetic algorithm to utilize my collected empirical data to create random kernels unlike the original kernel which is based on human experience and judgment. My research shows that kernels with smaller number of alphas result in higher fitness scores than the original kernel. Based on the analysis of the fitness function, a kernel with a fundamentally different structure might more effectively recommend next steps for a team during Essence Reflection meetings. I presented this work at SCSE 2015 and summarize it in Section \ref{KernelOptimization}.
+I programmed a genetic algorithm to utilize my collected empirical data to create random kernels, unlike the original kernel which is based on human experience and judgment. My research shows that kernels with smaller number of alphas result in higher fitness scores than the original kernel. Based on the analysis of the fitness function, a kernel with a fundamentally different structure might more effectively recommend next steps for a team during Essence Reflection meetings. I presented this work at SCSE 2015 and summarize it in Section \ref{KernelOptimization}.
 
 Given that the Essence kernel does not reflect incremental progress achieved during construction on iterative projects, I plan to create a kernel extension or kernel replacement that supports iterative software development projects. I will use empirical data collected from field observations, participant-observation, and interviews of software teams in industry to derive an iterative kernel. Section \ref{PivotalKernelExtension} contains my research plan.
 
 \section{Introduction to Essence}
 \label{Method}
 
-The SEMAT community created Essence as a universal framework for any software engineering project. At the core of Essence is a ``kernel of widely-agreed elements'' ~\cite{JacobsonQueue}. This general kernel can theoretically support any kind of software endeavor. A software project can define its software processes by using the general kernel, extending the kernel, or defining additional practices on top of the kernel.
+The SEMAT community created Essence as a universal framework for any software engineering project ~\cite{JacobsonQueue}. At the core of Essence is a ``kernel of widely-agreed elements'' built on an Essence Language shown in Figure \ref{EssenceLayers}. This general kernel can theoretically support any kind of software endeavor. A software project can define its software method by using the general kernel, extending the kernel, or defining additional practices on top of the kernel. Contrary to the kernel, practices are context dependent and may not be applicable to different situations. Software methods are compositions of practices that are known to work well together.
 
 \begin{figure}[h]\vspace*{4pt}
 \centerline{\includegraphics[width=2.2in]{kernel_images/EssenceLayers}}
@@ -195,60 +227,68 @@ The Essence kernel is composed of a set of alphas, alpha states, and alpha state
 
 \section{Research Contributions}
 
-\subsection{Essence Reflection Meetings}
-\label{EssenceReflectionMeetings}
-
-The EASE 2014 paper presents an empirical evaluation of the team reflection support provided by the Essence framework, and compares Essence reflection meetings to other types of team reflection meetings.
-
-Essence Reflection meetings are an alternative to Agile retrospection or weekly status meetings. 
-
-During an Essence Reflection meeting, a team systematically uses the Essence kernel to identify where they are in the project, identity next possible goals, and generate action items to achieve those goals. 
-
-For each alpha, team members ...
-\begin{enumerate}
-\item Read Alpha State Checklists
-\item Identify Current State
-    \begin{itemize}
-    \item Individually and silently determine the current state
-    \item When ready, all reveal their state at same time.
-    \item Discuss differences of opinion until agreement is reached.
-    \item Record current state
-    \end{itemize}
-\item Perform Root Cause Analysis
-    \begin{itemize}
-    \item Discuss why the target state is not achieved.
-    \end{itemize}
-\item Determine Action Items    
-\end{enumerate}
-
-￼The team members step back from their daily tasks, come together as a team, and look 
-at the project holistically based on the seven alphas.
-
-The team monitors its progress by identifying the current state of each alpha. 
-
-￼The team sets the project direction by identifying the target state for each alpha. Following a discussion focusing on why a target state is not achieved, the team sets the goals to reach that state. The goals are selected out of the target state checklist.
-
-The team decides how to reach the goals associated to each target state by defining some specific work items. The kernel does not.
-
-The identified work items have been added to the team’s work item list or backlog. The team members return to their office space and start working on the work item. 
-
-After awhile (typically a week in our case), the team regroups again, and looks at the project holistically based on the seven project dimensions. This is an iterative process allowing the team to monitor and steer the project towards higher states.
-
-I created Essence Reflection meeting as pragmatic re-framing of an idea found in Chapter 8 of \underline{The Essence of Software Engineering} \cite{EssenceBook}. The original idea suggested that a team meeting meet at the beginning of an iteration, identity which state cards to achieve at the end of the iteration, and identity tasks to put in the backlog. Instead, in my approach, there is no expectation that any state would be accomplished by the end of an iteration. Goals are identified to achieve in the future. Action items generated in this meeting might not be appropriate for a software development backlog, and thus are treated separately from tasks. I further refine the activity to have explicit root cause analysis steps. 
-
 \subsection{Kernel Evaluation in Academic Graduate Programs}
 \label{CMUFieldStudy}
-I performed a field study \cite{ICSE2014} that showed that Essence Reflection meetings \cite{EASE2014} using the Essence kernel provide project teams with a simple, lightweight, non-prescriptive and method-agnostic way to examine their projects holistically, structure team reflections, manage risks, monitor progress and steer their projects. The purpose of the field study was to to understand the value project teams receive from following the SEMAT Essence’s monitoring and steering approach provided by the Essence kernel alphas and their states. The two semester field study followed seven master of software engineering teams with no prior knowledge of Essence in a team-based capstone course called, ``Software Engineering Practicum." Compared to the ten previous years, the faculty in charge of the practicum course noted that there was ``much better early project organization with a lot less floundering." Indeed, the approach enabled students to learn to steer projects effectively by addressing the various dimensions of software engineering.
+The purpose of the field study \cite{ICSE2014} was to to understand the value project teams receive from following the SEMAT Essence’s monitoring and steering approach provided by the Essence kernel alphas and their states.  The two semester field study followed seven master of software engineering teams with no prior knowledge of Essence in a team-based capstone course called, ``Software Engineering Practicum." 
+
+The field study showed that Essence Reflection meetings using the Essence kernel provide project teams with a simple, lightweight, non-prescriptive and method-agnostic way to examine their projects holistically, structure team reflections, manage risks, monitor progress and steer their projects. 
+
+Compared to the ten previous years, the faculty in charge of the practicum course noted that there was ``much better early project organization with a lot less floundering." Indeed, the approach enabled students to learn to steer projects effectively by addressing the various dimensions of software engineering.
 
 The field study showed that most of the value from the Essence kernel occurs during project startup and initiation and for monitoring and steering the work done at the project or release level \cite{ICSE2014}. Since the work is done at the project or release level, it could be qualified as ``universal" as it is generally common across projects. This confirms that the kernel provides an effective support for universal work. Support for non-universal technical work should come from additional practices added on top of the kernel, or by extending or altering the kernel definition.
 
+\subsection{Essence Reflection Meetings}
+\label{EssenceReflectionMeetings}
+Essence Reflection meetings are an alternative to Agile retrospection or weekly status meetings. The EASE 2014 paper \cite{EASE2014} presents an empirical evaluation of Essence Reflection meetings supported by the Essence framework, and compares Essence reflection meetings to other types of team reflection meetings.
+
+During an Essence Reflection meeting, a team systematically uses the Essence kernel to identify where they are in the project, identity next possible goals, and generate action items to achieve those goals. 
+
+% For each alpha, team members ...
+% \begin{enumerate}
+% \item Read the alpha's states and the state's checkpoints,
+% \item Identify the team's current state,
+%     \begin{itemize}
+%     \item Individually and silently determine the current state.
+%     \item When ready, everyone reveals their state at same time.
+%     \item Discuss differences of opinion until agreement is reached.
+%     \item Records the current state.
+%     \end{itemize}
+% \item Perform root cause analysis, and
+%     \begin{itemize}
+%     \item Discuss why the target state is not achieved.
+%     \end{itemize}
+% \item Determine action items.
+% \end{enumerate}
+
+% ￼The team members step back from their daily tasks, come together as a team, and look at the project holistically based on the seven alphas.
+%The team monitors its progress by identifying the current state of each alpha. 
+%￼The team sets the project direction by identifying the target state for each alpha. Following a discussion focusing on why a target state is not achieved, the team sets the goals to reach the next state. The goals are selected out of the target state's checkpoints.
+%The team decides how to reach the goals associated to each target state by defining some specific work items. The kernel does not tell the team how to achieve these goals. 
+%The team places the identified work items into the team’s work item list or backlog. The team members return to their office space and start working on the work item. 
+%After awhile (typically a week), the team regroups again, and looks at the project holistically based on the seven project dimensions. This is an iterative process allowing the team to monitor and steer the project towards higher states.
+%I created Essence Reflection meeting as pragmatic re-framing of an idea found in Chapter 8 of \underline{The Essence of Software Engineering} \cite{EssenceBook}. The original idea suggests that a team meet at the beginning of an iteration, identity which state cards to achieve at the end of the iteration, and identity tasks to put in the backlog.
+%Several key differences include:
+%1) In my approach, we have explicit root cause analysis to determine why a target state is not achieved
+%
+%2) In my approach, Essence Reflection meetings happen weekly during a project. During project initiation, there might not be any iterations and its helpful to conduct Essence Reflection meetings. On agile projects iterations can range from one week to one month. Frequent, weekly meetings is helpful for a team.
+%
+%3) In my approach, there is no expectation that any state would be accomplished by the end of an iteration. Goals are identified to achieve in the future. Action items generated in this meeting might not be appropriate for a software development backlog, and thus are treated separately from tasks. I further refine the activity to have explicit root cause analysis steps. 
+%Essence Reflection meetings complement agile retrospections when the Essence kernel provides meaningful checkpoints to accomplish. Value decreases when the kernel provides no new checkpoints even though the team continues making progress towards their software project goals.
+
 \subsection{Kernel Support and Tooling}
 \label{EssenceTool}
-I created a research tool for supporting team-based software development for the purpose of increasing the efficiency of Essence Reflection Meetings, decreasing training time, and streamlining data collection. A screen-shot of the tool is shown in Figure \ref{EssenceToolScreenshot}. Before the tool existed, I would print out the alphas and using a paper cutter, cut out each individual state card for each alpha. This was time consuming and laborious. Transporting and handing out a set of cards to each team member was tedious as I had to be careful not to mix them up. (insert photo) In the next semester, I printed out a full strip of alpha cards on legal paper. See Figure \ref{AlphaStrip}, cutting continued to be time consuming. For distributed teams we used google documents' diagrams, but it was slow and tedious to zoom in and zoom out (insert picture). For data entry we used google spreadsheets to capture which checklists the students achieved each week. Once the semester was over we would convert this data into different representations to create graphs to show team progress through the semester and to help us analyze the data.  
+I created a research tool for supporting team-based software development for the purpose of reducing preparation time, increasing the efficiency of Essence Reflection Meetings, decreasing training time, and streamlining data collection. A screen-shot of the tool is shown in Figure \ref{EssenceToolScreenshot}. 
+
+\textit{The tool reduces preparation time}: Before the tool existed, I would print out the alphas and using a paper cutter, cut out each individual state card for each alpha. This was time consuming and laborious.  In the next semester, I printed out a full strip of state cards per alpha on legal paper. Figure \ref{AlphaStrip} shows a team using an alpha strip. Printing and cutting continued to be time consuming. 
+
+\textit{The tool increases the efficiency of Essence Reflection meetings}: The tool helps the team learn the kernel by focusing the team on one alpha at a time. Before handing out sets of 42 cards to each team member was tedious. After switching to the seven alpha strips, distributing them one at a time still resulted in shuffling of paper. For distributed teams I used Google documents' diagrams, but it was slow and tedious to zoom in and zoom out. The tool sequenced the needed information in one logical flow  resulting in just in time learning. Once the team is done entering their information, a ``done" button emails everyone on the team (including the faculty) the team's current status for each alpha, all captured notes, and a list of action items for the team to accomplish. 
+
+\textit{The tool streamlined data collection}: Before the alpha state checkpoints were presented on a sheet of paper and for data entry I used Google spreadsheets to capture which checklists the students achieved each week. Now the tool allows kernel viewing and data collection in the same place. 
+%Once the semester was over we would convert the Google spreadsheet data into different representations to create graphs indicating team progress through the semester in order to help analyze the data.  
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=3.00in]{tool_photos/tool_photo}
+\includegraphics[width=4.00in]{tool_photos/tool_photo}
 \caption{Essence Kernel Tool for Essence Reflection Meetings}
 \label{EssenceToolScreenshot}
 \end{figure}
@@ -260,86 +300,97 @@ I created a research tool for supporting team-based software development for the
 \label{AlphaStrip}
 \end{figure}
 
-The tool enabled us to streamline the entire process. Prior to the first Essence Reflection meeting, a faculty member log ins in, creates a team, and adds each student member to the team. During the first meeting, one team member shows the first alpha on a projector or TV screen in a conference room. The tool helps the team focus on the kernel, one alpha at a time. Before the data was presented on a sheet of paper and the data was collected in a spreadsheet; now the tool allows kernel viewing and data collection to happen at the same place. Once the team is done entering their information, the ``done" button emails everyone on the team including the faculty member the team's current status for each alpha, all captured notes, and a list of action items for the team to accomplish. 
-
-I conducted usability testing on the tool and incorporated the feedback into the tool. This enabled me to improve the tool's usefulness and reduce issues for novice users. 
+%Prior to the first Essence Reflection meeting, a faculty member log ins in, creates a team, and adds each student member to the team. During the first meeting, one team member shows the first alpha on a projector or TV screen in a conference room.
+%I conducted usability testing on the tool and incorporated the feedback into the tool. This enabled me to improve the tool's usefulness and reduce issues for novice users. 
 
 \subsection{Kernel Optimization}
 \label{KernelOptimization}
-I leveraged genetic algorithms to generate candidate replacement kernels based on empirical data. \cite{SCSE2015} After creating a research and educational tool described in Section \ref{EssenceTool}, I collected empirical data on how teams progress through the Essence kernel during their project. I created the Partial Order fitness function to evaluate how well a candidate kernel explains the empirical data. The fitness function rewards kernels that sequence checkpoints in the same order that teams accomplish them. 
+The purpose of this exploratory work was to demonstrate one way to generate a candidate Essence kernel directly from empirical data, not to recommend a replacement for the original Essence kernel. 
 
-I created a genetic program that initialize a population with random permutations of the existing kernel and then would evolve the members of this population by randomly re-arranging checklist items using three different operators:
+\cite{SCSE2015} 
 
-\begin{itemize}
-\item ``Move checklist item" operator randomly selects a checklist item and moves it to a different state. If the new state has more than eight checklist items, the code automatically splits that state into two states using the ``split state" operator. The genetic program choose this operator 80\% of the time.
-\item ``Split state" operator randomly selects a state and subdivides it by creating a new subsequent state and moves half of the checklist items to the new state. The genetic program choose this operator 10\% of the time.
-\item ``Delete state" operator randomly deletes a state by moving all of its checklist items randomly to other states. The genetic program choose this operator 10\% of the time.
-\end{itemize}
+Using collected empirical data on how teams progress through the Essence kernel during their project,
+I leveraged genetic algorithms to generate candidate replacement kernels based on that empirical data. 
+The genetic program initializes a population with random permutations of the existing kernel and then evolves the population's members by randomly re-arranging checklist items using three different operators. The Partial Order fitness function to evaluate how well a candidate kernel explains the empirical data. The fitness function rewards kernels that sequence checkpoints in the same order that teams accomplish them. 
 
-The generated kernels outscored the original kernel. When the SEMAT community created the Essence kernel, they relied upon human experience and judgment to select the alphas, states, and checklists. Essence is not grounded by empirical data. The purpose of that exploratory work was to demonstrate one way to generate a candidate Essence kernel directly from empirical data, not to recommend a replacement for the original Essence kernel. 
+% \begin{itemize}
+% \item ``Move checklist item" operator randomly selects a checklist item and moves it to a different state. If the new state has more than eight checklist items, the code automatically splits that state into two states using the ``split state" operator. The genetic program exercised this operator 80\% of the time.
+% \item ``Split state" operator randomly selects a state and subdivides it by creating a new subsequent state and moves half of the checklist items to the new state. The genetic program exercised this operator 10\% of the time.
+% \item ``Delete state" operator randomly deletes a state by moving all of its checklist items randomly to other states. The genetic program exercised this operator 10\% of the time.
+% \end{itemize}
 
-I analyzed the kernel search space and discovered that, in general, kernels utilizing less alphas scored better than kernels utilizing more alphas. A genetic algorithm starting with eight alphas would evolve to use less and less of them, with the best scoring candidate kernel only using one alpha. This means that during an Essence Reflection meeting, with one alpha, teams need only consider a handful of next goals. Imagine a team meeting with the perfect oracle. Once describing current state, the oracle suggests several possible goals. Creating such an oracle may require a fundamental shift in the data representation of the Essence kernel. 
+The generated kernels outscored the original kernel. When the SEMAT community created the Essence kernel, they relied upon human experience and judgment to select the alphas, states, and checkpoints. Essence is not grounded by empirical data. 
+
+I analyzed the kernel search space and discovered that, in general, kernels utilizing less alphas scored better than kernels utilizing more alphas. A genetic algorithm starting with eight alphas would evolve to use less and less of them, with the best scoring candidate kernel only using one alpha. See Figure \ref{NumberOfAlphasPartialOrdering}. During Essence Reflection meeting, teams need only consider a handful of next goals when there is a single alpha. Imagine a team meeting with the perfect oracle. Once describing current state, the oracle suggests several possible goals. Creating such an oracle may require a fundamental shift in the data representation of the Essence kernel. 
+
+\begin{figure}[ht]\vspace*{4pt}
+\centerline{\includegraphics[width=5.00in]{genetic_programming/number_of_alphas_partial_ordering_500gens_40runs_8alpha}}
+\caption{Partial Ordering`s Utilization of Number of Alphas}\vspace*{-6pt}
+\label{NumberOfAlphasPartialOrdering}
+\end{figure}
 
 %While the original kernel appears to be descriptive and the kernel does claim to support any software project, in practice, the kernel is a prescriptive representation. First, the kernel is based on expert experience not directly from project data. Second, when discussing potential modifications to the original kernel based on my project data, the kernel committee (what's the official name?) made comments to the effect of ``that's a nice suggestion, but we don't think that would generalize to all projects" and ``that's a nice suggestion, but I want to represent how projects should be run, not how they are actually run." 
 
 \subsection{Kernel Extension in Industry}
 \label{PivotalKernelExtension}
+My current research objective is to evaluate the Essence kernel in industry and generate a kernel extension or replacement kernel that models iterative software projects at Pivotal.
 
-The goal is to generate a kernel extension or replacement kernel that models the practices used by product managers and software engineers at Pivotal to manage their projects.
+To accomplish this objective, I need to answer these research questions:
 
-I followed the participant-observer technique by joining a software development team as a full time software engineer. As software development occurred, I reflected on the software development experience and record notes. After examining my notes I created a representation model to explain the observations. I continued to collect data and update the model when the model did not fully describe the data. I periodically reviewed the kernel extension for missing elements. I collected data across multiple projects. Figure \ref{KernelExtensionWorkflow} and Figure \ref{KernelExtension} illustrate the current proposal.
+Research Question 1: Does the kernel support software development as it is done at Pivotal? 
 
-In order to refine and validate the kernel extension, I plan to interview Pivotal product managers and Pivotal software engineers. Even though the two roles have different perspectives, I'll use the same interview questions because I'm after one goal, a model that describes the way Pivotal does iterative software development.
+Research Question 2: Is Essence useful at Pivotal?
 
-I plan to use semi-structured interviews in Figure \ref{InterviewQuestions}. This allows me to ask the same questions to every interviewee, and enables me to explore and follow-up on interesting perspectives of the participant.
+Research Question 3: How would you modify or extend the kernel the kernel to incorporate iterative development as it is done at Pivotal?
 
-I will record and transcribe these conversations. I will annotate the transcription with markers and use these to update the proposed model. Based on one trial run of these questions, I expect the conversations to last between thirty and forty minutes. 
+Research Question 4: How does the extension compare to other Essence components such as the Requirements-Item Sub-Alpha and the Software-System Alpha? 
 
-\begin{figure}[h]\vspace*{4pt}
-\caption{Semi-structured Interview Questions}\vspace*{-6pt}\label{InterviewQuestions}
-\begin{itemize}
-\item Please describe your typical day. What is the ``day in the life" of a product manager / software engineer?
-\item What are the characteristics and attributes on an ideal story?
-\item What is the purpose of the iteration planning meeting?
-\item How can you tell if a story is ready for iteration planning meeting and thus ready to be pointed?
-\item What feedback do you get that the project is working well?
-\item Where does usability testing fit into your ideal project?
-\item Please describe your workflow by drawing it on this blank piece of paper.
-\item Please examine this proposed model and critique it.
-\end{itemize}
-\end{figure}
+I am using the participant-observer technique by joining software development teams as a full time software engineer. As software development occurs, I reflect on the software development experience and record notes.  In order to refine and validate the kernel extension, I plan to interview Pivotal product managers and Pivotal software engineers. I will record and transcribe these conversations. I will annotate the transcriptions with markers and use these to update the proposed model.
 
-I plan to interview Pivotal product managers and software engineers until the model stables and the data reaches saturation.
+% \begin{figure}[h]\vspace*{4pt}
+% \caption{Semi-structured Interview Questions}\vspace*{-6pt}\label{InterviewQuestions}
+% \begin{itemize}
+% \item Please describe your typical day. What is the ``day in the life" of a product manager or software engineer?
+% \item What are the characteristics and attributes on an ideal story?
+% \item What is the purpose of the iteration planning meeting?
+% \item How can you tell if a story is ready for iteration planning meeting and thus ready to be pointed?
+% \item What feedback do you get that the project is working well?
+% \item Where does usability testing fit into your ideal project?
+% \item Please describe your workflow by drawing it on this blank piece of paper.
+% \item Please examine this proposed model and critique it.
+% \end{itemize}
+% \end{figure}
 
-\subsubsection{Evaluation of Results and Implications}
+% I plan to interview Pivotal product managers and software engineers until the model stables and the data reaches saturation.
 
-Note: this section contains representative discussion about the current initial results. The purpose is to illustrate kind of discussion that could happen. Since the model is in flux, this section could change substantially.
+% \subsubsection{Evaluation of Preliminary Results and Implications}
+% Note: this section contains representative discussion about the current initial results. The purpose is to illustrate kind of discussion that could happen.
 
-Figure \ref{KernelExtensionWorkflow} illustrates the state transitions of the \textbf{Story Card} alpha. Pivotal uses story cards in Pivotal Tracker to track and monitor the requirements for a system. The diagram identifies several problems with the kernel's fundamental structure of linear state machines. The normal flow from \textit{Named} to \textit{Accepted} is linear, however, story cards do revert to a previous state. During the Iteration Planning Meeting, stories categorized as \textit{Ready to be Pointed} can be delayed on pointing if the team realizes that the acceptance criteria is not clear or during the story's discussion, the product manager realizes that there are additional considerations that need to be addressed. \textit{Started} stories often become blocked on dependencies beyond the team's control. \textit{Started} stories sometimes get un-started due to changing project needs. Eventually \textit{Blocked} stories are un-blocked and are ready to be worked on. Once stories are \textit{Delivered}, they can be \textit{Rejected} for a variety of reasons.
+% Figure \ref{KernelExtensionWorkflow} illustrates the state transitions of the \textbf{Story Card} alpha. Pivotal uses story cards in Pivotal Tracker to track and monitor the requirements for a system. The diagram identifies several problems with the kernel's fundamental structure of linear state machines. The normal flow from \textit{Named} to \textit{Accepted} is linear, however, story cards do revert to a previous state. During the Iteration Planning Meeting, stories categorized as \textit{Ready to be Pointed} can be delayed on pointing if the team realizes that the acceptance criteria is not clear, or during the story's discussion, the product manager realizes that there are additional considerations that need to be addressed. \textit{Started} stories often become blocked on dependencies beyond the team's control. \textit{Started} stories sometimes get un-started due to changing project needs. Eventually \textit{Blocked} stories are un-blocked and are ready to be worked on. Once stories are \textit{Delivered}, they can be \textit{Rejected} for a variety of reasons.
 
-Figure \ref{KernelExtension} shows the checklists for each of these states. The checklists are typical of Essence kernels checklists with two exceptions. The checklists rely on both ``and" and  ``or" conditions to achieve a state. The data collection revealed the tension between prescriptive and descriptive modeling.
+% Figure \ref{KernelExtension} shows the checklists for each of these states. The checklists are typical of Essence kernels checklists with two exceptions. The checklists rely on both ``and" and  ``or" conditions to achieve a state. The data collection revealed the tension between prescriptive and descriptive modeling.
 
-\begin{figure}[ht]
-\includegraphics[width=6.25in]{pivotal_images/story_card_workflow}
-\caption{(Initial Results) Pivotal Kernel Extension Workflow Story Card Alpha}
-\label{KernelExtensionWorkflow}
-\end{figure}
+% \begin{figure}[ht]
+% \includegraphics[width=6.25in]{pivotal_images/story_card_workflow}
+% \caption{(Initial Results) Pivotal Kernel Extension Workflow Story Card Alpha}
+% \label{KernelExtensionWorkflow}
+% \end{figure}
 
-\begin{figure}[ht]
-\includegraphics[width=6.25in]{pivotal_images/story_card1}
-\includegraphics[width=6.25in]{pivotal_images/story_card2}
-\includegraphics[width=6.25in]{pivotal_images/story_card3}
-\caption{(Initial Results) Pivotal Kernel Extension for Story Card Alpha}
-\label{KernelExtension}
-\end{figure}
+% \begin{figure}[ht]
+% \includegraphics[width=6.25in]{pivotal_images/story_card1}
+% \includegraphics[width=6.25in]{pivotal_images/story_card2}
+% \includegraphics[width=6.25in]{pivotal_images/story_card3}
+% \caption{(Initial Results) Pivotal Kernel Extension for Story Card Alpha}
+% \label{KernelExtension}
+% \end{figure}
 
-\subsubsection{Necessary modifications to the Essence structure}
+% \subsubsection{Necessary modifications to the Essence structure}
 
-The \textit{Rejected} state happens for a specific reason, thus achieving \textit{any} one of the checkpoint items causes the state to be achieved and the story to be \textit{Rejected}. The kernel would need a fundamental shift to support this since its underlying language requires accomplishing \textit{all} checklists. 
+% The \textit{Rejected} state happens for a specific reason, thus achieving \textit{any} one of the checkpoint items causes the state to be achieved and the story to be \textit{Rejected}. The kernel would need a fundamental shift to support this since its underlying language requires accomplishing \textit{all} checklists. 
 
-Two possible workarounds lose important details and are unappealing. Someone on the kernel author committee might suggest this situation be resolved by replacing the many checkpoints with a single ``the work is rejected" checkpoint. This path is unappealing as the proposed checkpoint both looses interesting information by dumbing-down the model, and simplifies the information into a trivial checkpoint that is redundant with the state's title. Another possible solution is to collapse the many checkpoints into a single statement that says ``A or B or C or D" as in ``the delivered story does not match the acceptance criteria of the story OR the PM updated ... OR the PM added ... OR the PM changed ... OR the PM." This run-on sentence makes the checkpoint difficult to read and understand. 
+% Two possible workarounds lose important details and are unappealing. Someone on the kernel author committee might suggest this situation be resolved by replacing the many checkpoints with a single ``the work is rejected" checkpoint. This path is unappealing as the proposed checkpoint both looses interesting information by dumbing-down the model, and simplifies the information into a trivial checkpoint that is redundant with the state's title. Another possible solution is to collapse the many checkpoints into a single statement that says ``A or B or C or D" as in ``the delivered story does not match the acceptance criteria of the story OR the PM updated ... OR the PM added ... OR the PM changed ... OR the PM." This run-on sentence makes the checkpoint difficult to read and understand. 
 
-There are typical and common reasons for a story to be rejected, two of which fit Pivotal's accepted flows for the work. 
+% There are typical and common reasons for a story to be rejected, two of which fit Pivotal's accepted flows for the work. This raised the issue about whether the kernel should be prescriptive and explain the ``way things should be" or descriptive and explain the ``way things are."
 
 \section{Results}
 
@@ -354,17 +405,17 @@ Given my role at Pivotal, I have access to data and resources for software devel
 \label{Conclusions}
 
 % \subsection{Summary}
-The SEMAT community created Essence to ``re-found software engineering as a rigorous discipline." The Essence kernel serves as the foundation. The creators claim that it provides support and value to any software engineering project. While the Essence authors have published many papers explaining and promoting the Essence kernel, only my  ICSE 2014 paper provides any empirical evidence that it provides value in the context of master students working on a team-based capstone software project course. 
+The SEMAT community created Essence to ``re-found software engineering as a rigorous discipline." The Essence kernel serves as the foundation. The creators claim that it provides support and value to any software engineering project. While the Essence authors have published many papers explaining and promoting the Essence kernel, only my ICSE 2014 paper provides any empirical evidence that it provides value, and that study's context is limited to master students working on a team-based capstone software project course. 
 
-During Essence Reflection meetings, student teams using the Essence kernel found value during project inception and start-up and found less value during an iterative construction phase. Since most of agile software development occurs via interactive construction adapting Essence kernel would increase its value to software development teams.
+During Essence Reflection meetings, student teams using the Essence kernel found value during project inception and start-up and found less value during an iterative construction phase. 
 
-The original Essence kernel is method agnostic and does not directly support iterative development. A kernel extension for iterative software development would enable teams to find value from Essence during construction phases of a project.
+Since most of agile software development occurs via iterative construction, adapting Essence kernel would increase its potential value to software development teams. A kernel extension for iterative software development would enable teams to find value from Essence during construction phases of a project.
 
 \appendix
 \section{Research Timeline}
 \label{appendix}
 
-\begin{table}[h]
+\begin{table}[H]
 \caption{Research Timeline}
 \label{ResearchTimeline}
 \centering
