@@ -111,7 +111,7 @@ Given the plethora of practices and methods, the Software Engineering Method and
 
 My research goal is to evaluate the Essence kernel for practical use on academic and industrial software development projects, identify issues, and research solutions grounded in empirical evidence. 
 
-At Carnegie Mellon University in Silicon Valley, I conducted a field study with masters of science in software engineering students as they completed a team-based capstone projects using the Essence kernel. During weekly Essence Reflection meetings, the Essence kernel checkpoints helped students identify relevant goals to achieve, which enabled the team to steer the project to higher states. The student teams found value during project inception. However, teams found less value during the construction phase of iterative projects, as the Essence kernel offered few new goals hence loosing its ability to help the team steer the project. The original Essence kernel is method agnostic and does not directly support iterative development. Since most of agile software development occurs via iterative software development, adapting Essence kernel to have goals during iterative construction phase would increase its value to software development teams.
+At Carnegie Mellon University in Silicon Valley, I conducted a field study with masters of science in software engineering students as they completed a team-based capstone projects using the Essence kernel. During weekly Essence Reflection meetings, the Essence kernel checklists helped students identify relevant goals to achieve, which enabled the team to steer the project to higher states. The student teams found value during project inception. However, teams found less value during the construction phase of iterative projects, as the Essence kernel offered few new goals hence loosing its ability to help the team steer the project. The original Essence kernel is method agnostic and does not directly support iterative development. Since most of agile software development occurs via iterative software development, adapting Essence kernel to have goals during iterative construction phase would increase its value to software development teams.
 
 Following these results in academia, my objective is to continue my research in industry, with a focus on Pivotal. One of my next goals is to adapt the Essence kernel for use at Pivotal by providing a kernel extension that matches Pivotal's engineering experiences and practices. My plan is to conduct participant-observation of several software development projects at Pivotal. I will interview many software engineers and product managers to collect additional data. I'll iterate my research by incorporating this feedback. My expected results is a modified kernel or kernel extension grounded in empirical data that supports iterative software development. 
 
@@ -148,12 +148,12 @@ Since the 1950's software engineers have been creating methods to help manage so
 \caption{Evolution of Methods}\vspace*{-6pt}\label{EvolutionOfMethods}
 \end{figure}
 
-In response to this problem, the SEMAT community released the “Essence: Kernel and Language” as a potential unifying theory  ~\cite{OMGStandard}. The Essence kernel defines a set of dimensions, states, and checkpoints that are claimed to be "universal" and applicable to every software engineering project. The kernel aims at providing a “common ground” for all software development endeavors ~\cite{JacobsonQueue}. It should allow practitioners to map practices and methods to a set of common dimensions of software projects ~\cite{JacobsonQueue}.  It should assist any software development teams in monitoring their progress and steering their project throughout a project.
+In response to this problem, the SEMAT community released the “Essence: Kernel and Language” as a potential unifying theory  ~\cite{OMGStandard}. The Essence kernel defines a set of dimensions, states, and checklists that are claimed to be "universal" and applicable to every software engineering project. The kernel aims at providing a “common ground” for all software development endeavors ~\cite{JacobsonQueue}. It should allow practitioners to map practices and methods to a set of common dimensions of software projects ~\cite{JacobsonQueue}.  It should assist any software development teams in monitoring their progress and steering their project throughout a project.
 
 \subsection{Research Objective}
 My research goal is to evaluate the Essence kernel for practical use on academic and industrial software development projects, identify issues, and research solutions grounded in empirical evidence.
 
-\sout{The ``The Essence of Software Engineering: The SEMAT Kernel'' paper ~\cite{JacobsonQueue} describes the Essence kernel which allows practitioners to map practices and methods to a set of common dimensions of software projects. The framework consists of an Essence kernel containing ``universal" project dimensions, states, and checkpoints applicable to every software engineering project. Practices specific to certain circumstances are built on top of the kernel. Practices are then combined to define software development methods. The SEMAT community claims that Essence helps practitioners by providing a rigorous foundation and understanding for any software endeavor.  The “universal” Essence kernel aims at providing a “common ground” for all software development endeavors ~\cite{JacobsonQueue}. Software development teams can use Essence to monitor their progress and steer their project throughout a software project. }
+\sout{The ``The Essence of Software Engineering: The SEMAT Kernel'' paper ~\cite{JacobsonQueue} describes the Essence kernel which allows practitioners to map practices and methods to a set of common dimensions of software projects. The framework consists of an Essence kernel containing ``universal" project dimensions, states, and checklists applicable to every software engineering project. Practices specific to certain circumstances are built on top of the kernel. Practices are then combined to define software development methods. The SEMAT community claims that Essence helps practitioners by providing a rigorous foundation and understanding for any software endeavor.  The “universal” Essence kernel aims at providing a “common ground” for all software development endeavors ~\cite{JacobsonQueue}. Software development teams can use Essence to monitor their progress and steer their project throughout a software project. }
 
 My first goal is to evaluate the effectiveness of the Essence kernel monitoring and steering approach, and its applicability on a set of student and industry projects. Following recommendations for reporting research done in the empirical
 software engineering community
@@ -227,11 +227,11 @@ The SEMAT community created Essence as a universal framework for any software en
 \caption{Essence Method Architecture: Methods and Practices are Context Specific and the Kernel is Universal}\vspace*{-6pt}\label{EssenceLayers}
 \end{figure}
 
-The Essence kernel defines a ``universal'' characteristic or dimension of a software project as an ``alpha.'' The Essence kernel is composed of a set of alphas, alpha states, and alpha state checkpoint items. The seven alphas are \textbf{Stakeholders}, \textbf{Opportunity}, \textbf{Requirements}, \textbf{Software System}, \textbf{Team}, \textbf{Way of Working}, and \textbf{Work}. Essence decomposes each of these alphas into a set of states that represent a simple linear state machine as shown in Figure \ref{StateMachine}. For example, the \textbf{Requirements} alpha advances through the states \textit{Conceived}, \textit{Bounded}, \textit{Coherent}, \textit{Acceptable}, \textit{Addressed}, and \textit{Fulfilled.} Each state has a checkpoint or set of goals. To achieve a state, the project must satisfy every checkpoint item for that state \cite{OMGStandard}. If the project team knows the current state for each alpha, the team knows the overall project state, and which direction to take to get to the next project state.
+The Essence kernel defines a ``universal'' characteristic or dimension of a software project as an ``alpha.'' The Essence kernel is composed of a set of alphas, alpha states, and alpha state checklist items. The seven alphas are \textbf{Stakeholders}, \textbf{Opportunity}, \textbf{Requirements}, \textbf{Software System}, \textbf{Team}, \textbf{Way of Working}, and \textbf{Work}. Essence decomposes each of these alphas into a set of states that represent a simple linear state machine as shown in Figure \ref{StateMachine}. For example, the \textbf{Requirements} alpha advances through the states \textit{Conceived}, \textit{Bounded}, \textit{Coherent}, \textit{Acceptable}, \textit{Addressed}, and \textit{Fulfilled.} Each state has a checklist or set of goals. To achieve a state, the project must satisfy every checklist item for that state \cite{OMGStandard}. If the project team knows the current state for each alpha, the team knows the overall project state, and which direction to take to get to the next project state.
  
 \begin{figure}[h]\vspace*{4pt}
 \centerline{\includegraphics[width=5.4in]{kernel_images/StateMachineRequirements}}
-\caption{Kernel's linear state machine for Requirements alpha (with Fulfilled checkpoint)}\vspace*{-6pt}\label{StateMachine}
+\caption{Kernel's linear state machine for Requirements alpha (with Fulfilled checklist)}\vspace*{-6pt}\label{StateMachine}
 \end{figure}
 
 \section{Research Contributions}
@@ -285,7 +285,7 @@ Essence Reflection meetings are held weekly to guide student teams during their 
 
 % For each alpha, team members ...
 % \begin{enumerate}
-% \item Read the alpha's states and the state's checkpoints,
+% \item Read the alpha's states and the state's checklists,
 % \item Identify the team's current state,
 %     \begin{itemize}
 %     \item Individually and silently determine the current state.
@@ -302,7 +302,7 @@ Essence Reflection meetings are held weekly to guide student teams during their 
 
 % ￼The team members step back from their daily tasks, come together as a team, and look at the project holistically based on the seven alphas.
 %The team monitors its progress by identifying the current state of each alpha. 
-%￼The team sets the project direction by identifying the target state for each alpha. Following a discussion focusing on why a target state is not achieved, the team sets the goals to reach the next state. The goals are selected out of the target state's checkpoints.
+%￼The team sets the project direction by identifying the target state for each alpha. Following a discussion focusing on why a target state is not achieved, the team sets the goals to reach the next state. The goals are selected out of the target state's checklists.
 %The team decides how to reach the goals associated to each target state by defining some specific work items. The kernel does not tell the team how to achieve these goals. 
 %The team places the identified work items into the team's work item list or backlog. The team members return to their office space and start working on the work item. 
 %After awhile (typically a week), the team regroups again, and looks at the project holistically based on the seven project dimensions. This is an iterative process allowing the team to monitor and steer the project towards higher states.
@@ -313,7 +313,7 @@ Essence Reflection meetings are held weekly to guide student teams during their 
 %2) In my approach, Essence Reflection meetings happen weekly during a project. During project initiation, there might not be any iterations and its helpful to conduct Essence Reflection meetings. On agile projects iterations can range from one week to one month. Frequent, weekly meetings is helpful for a team.
 %
 %3) In my approach, there is no expectation that any state would be accomplished by the end of an iteration. Goals are identified to achieve in the future. Action items generated in this meeting might not be appropriate for a software development backlog, and thus are treated separately from tasks. I further refine the activity to have explicit root cause analysis steps. 
-%Essence Reflection meetings complement agile retrospections when the Essence kernel provides meaningful checkpoints to accomplish. Value decreases when the kernel provides no new checkpoints even though the team continues making progress towards their software project goals.
+%Essence Reflection meetings complement agile retrospections when the Essence kernel provides meaningful checklists to accomplish. Value decreases when the kernel provides no new checklists even though the team continues making progress towards their software project goals.
 
 \begin{figure}[ht]
 \centering
@@ -347,7 +347,7 @@ I created a research tool for supporting team-based software development for the
 \label{KernelOptimization}
 The purpose of this exploratory work was to demonstrate one way to generate a candidate Essence kernel directly from empirical data, not to recommend a replacement for the original Essence kernel \cite{SCSE2015}. 
 Using collected empirical data on how teams progress through the Essence kernel during their project, I leveraged genetic algorithms to generate candidate replacement kernels based on that empirical data. 
-The genetic program initializes a population with random permutations of the existing kernel and then evolves the population's members by randomly re-arranging checklist items using three different operators. I created the Partial Order fitness function to evaluate how well a candidate kernel explains the empirical data. The fitness function rewards kernels that sequence checkpoints in the same order that teams accomplish them. 
+The genetic program initializes a population with random permutations of the existing kernel and then evolves the population's members by randomly re-arranging checklist items using three different operators. I created the Partial Order fitness function to evaluate how well a candidate kernel explains the empirical data. The fitness function rewards kernels that sequence checklists in the same order that teams accomplish them. 
 
 % \begin{itemize}
 % \item ``Move checklist item" operator randomly selects a checklist item and moves it to a different state. If the new state has more than eight checklist items, the code automatically splits that state into two states using the ``split state" operator. The genetic program exercised this operator 80\% of the time.
@@ -355,7 +355,7 @@ The genetic program initializes a population with random permutations of the exi
 % \item ``Delete state" operator randomly deletes a state by moving all of its checklist items randomly to other states. The genetic program exercised this operator 10\% of the time.
 % \end{itemize}
 
-The generated kernels outscored the original kernel. When the SEMAT community created the Essence kernel, they relied upon human experience and judgment to select the alphas, states, and checkpoints. Essence is not grounded by empirical data. 
+The generated kernels outscored the original kernel. When the SEMAT community created the Essence kernel, they relied upon human experience and judgment to select the alphas, states, and checklists. Essence is not grounded by empirical data. 
 
 I analyzed the kernel search space and discovered that, in general, kernels utilizing less alphas scored better than kernels utilizing more alphas. A genetic algorithm starting with eight alphas would evolve to use less and less of them, with the best scoring candidate kernel only using one alpha as seen in Figure \ref{NumberOfAlphasPartialOrdering}. During an Essence Reflection meeting, teams need only to consider a handful of next goals when there is a single alpha. Imagine a team meeting with the perfect oracle. Once describing current state, the oracle suggests several possible goals. Creating such an oracle may require a fundamental shift in the data representation of the Essence kernel. 
 
@@ -425,9 +425,9 @@ I can achieve these results within the next year. Given my role at Pivotal, I ha
 
 % \subsubsection{Necessary modifications to the Essence structure}
 
-% The \textit{Rejected} state happens for a specific reason, thus achieving \textit{any} one of the checkpoint items causes the state to be achieved and the story to be \textit{Rejected}. The kernel would need a fundamental shift to support this since its underlying language requires accomplishing \textit{all} checklists. 
+% The \textit{Rejected} state happens for a specific reason, thus achieving \textit{any} one of the checklist items causes the state to be achieved and the story to be \textit{Rejected}. The kernel would need a fundamental shift to support this since its underlying language requires accomplishing \textit{all} checklists. 
 
-% Two possible workarounds lose important details and are unappealing. Someone on the kernel author committee might suggest this situation be resolved by replacing the many checkpoints with a single ``the work is rejected" checkpoint. This path is unappealing as the proposed checkpoint both looses interesting information by dumbing-down the model, and simplifies the information into a trivial checkpoint that is redundant with the state's title. Another possible solution is to collapse the many checkpoints into a single statement that says ``A or B or C or D" as in ``the delivered story does not match the acceptance criteria of the story OR the PM updated ... OR the PM added ... OR the PM changed ... OR the PM." This run-on sentence makes the checkpoint difficult to read and understand. 
+% Two possible workarounds lose important details and are unappealing. Someone on the kernel author committee might suggest this situation be resolved by replacing the many checklists with a single ``the work is rejected" checklist. This path is unappealing as the proposed checklist both looses interesting information by dumbing-down the model, and simplifies the information into a trivial checklist that is redundant with the state's title. Another possible solution is to collapse the many checklists into a single statement that says ``A or B or C or D" as in ``the delivered story does not match the acceptance criteria of the story OR the PM updated ... OR the PM added ... OR the PM changed ... OR the PM." This run-on sentence makes the checklist difficult to read and understand. 
 
 % There are typical and common reasons for a story to be rejected, two of which fit Pivotal's accepted flows for the work. This raised the issue about whether the kernel should be prescriptive and explain the ``way things should be" or descriptive and explain the ``way things are."
 
@@ -507,9 +507,9 @@ Summer 2015 & Research: Kernel extension for iterative software projects.\\
 
 
 
-% "The checkpoints of an alpha state are joined by AND. The state of an alpha is deemed to be the most advanced (favourable) state for which all checkpoints are true." (OMG standard)
+% "The checklists of an alpha state are joined by AND. The state of an alpha is deemed to be the most advanced (favourable) state for which all checklists are true." (OMG standard)
 
-% "The checkpoints of a work product level of detail are joined by OR. The level of detail of a work product is deemed to be the most detailed level for which at least one checkpoint is true." (OMG standard)
+% "The checklists of a work product level of detail are joined by OR. The level of detail of a work product is deemed to be the most detailed level for which at least one checklist is true." (OMG standard)
 
 fullfilledSuccessorLevel: my_LevelOfDetail 􏰃 my_LevelOfDetail fullfilledSuccessorLevel (l) =
 if (l.successor = 􏰌) {l}
