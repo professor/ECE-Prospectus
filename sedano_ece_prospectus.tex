@@ -153,8 +153,6 @@ In response to this problem, the SEMAT community released the “Essence: Kernel
 \subsection{Research Objective}
 My research goal is to evaluate the Essence kernel for practical use on academic and industrial software development projects, identify issues, and research solutions grounded in empirical evidence.
 
-\sout{The ``The Essence of Software Engineering: The SEMAT Kernel'' paper ~\cite{JacobsonQueue} describes the Essence kernel which allows practitioners to map practices and methods to a set of common dimensions of software projects. The framework consists of an Essence kernel containing ``universal" project dimensions, states, and checklists applicable to every software engineering project. Practices specific to certain circumstances are built on top of the kernel. Practices are then combined to define software development methods. The SEMAT community claims that Essence helps practitioners by providing a rigorous foundation and understanding for any software endeavor.  The “universal” Essence kernel aims at providing a “common ground” for all software development endeavors ~\cite{JacobsonQueue}. Software development teams can use Essence to monitor their progress and steer their project throughout a software project. }
-
 My first goal is to evaluate the effectiveness of the Essence kernel monitoring and steering approach, and its applicability on a set of student and industry projects. Following recommendations for reporting research done in the empirical
 software engineering community
 \cite{GQM, Shaw}, I formed the
@@ -165,9 +163,9 @@ research goal using Goal/Question/Metric:
 \centering
 \begin{tabular}{|p{2.00in}|p{4.10in}|}
 \hline
-Analyze & Essence kernel  \\ \hline
+Analyze & Essence kernel monitoring and steering approach \\ \hline
 for the purpose of & evaluation \\ \hline
-with respect to its & effectiveness \\ \hline
+with respect to its & effectiveness and applicability \\ \hline
 from the point of view of the & software development team and researcher \\ \hline
 in the context of & software development in academia at Carnegie Mellon University in Silicon Valley and in industry at Pivotal. \\
 \hline
@@ -209,7 +207,7 @@ The paper also shows that the approach's ability to steer iterative projects is 
 
 I conducted a field study to identify the value in applying the Essence kernel in graduate software engineering program at Carnegie Mellon University in Silicon Valley. The field study revealed that the Essence kernel provides value to teams during project inception but does not reflect incremental progress achieved during construction on iterative projects. This work was presented at ICSE 2014 \cite{ICSE2014}. I summarize the field study's results in Section \ref{CMUFieldStudy}.
 
-I define a process that leverages the Essence kernel to monitor students progress and steer their project in the context of team-based project courses. The process has been presented at conference workshops \cite{SCSE2015Tutorial, CSEET2015Workshop}. The process is based on Essence Reflection meetings where a facilitator guides a team through the Essence kernel for the purpose of project monitoring and steering. The Essence Reflection meeting process emerged from the field study. I compared and contrasted Essence Reflection meetings with other Agile reflection meetings. This work was presented at EASE 2014 \cite{EASE2014} and is summarized in Section \ref{EssenceReflectionMeetings}.
+I define a process that leverages the Essence kernel to monitor students progress and steer their project in the context of team-based project courses. The process has been presented at a conference tutorial \cite{SCSE2015Tutorial} and a conference workshop \cite{CSEET2015Workshop}. The process is based on Essence Reflection meetings where a facilitator guides a team through the Essence kernel for the purpose of project monitoring and steering. The Essence Reflection meeting process emerged from the field study. I compared and contrasted Essence Reflection meetings with other Agile reflection meetings. This work was presented at EASE 2014 \cite{EASE2014} and is summarized in Section \ref{EssenceReflectionMeetings}.
 
 I created a web-based tool to guide development teams during Essence Reflection meetings, and to support my research by facilitating the collection of data related to the use of Essence by the teams throughout the project lifecycle. The tool is available at \url{http:\\esssence.sv.cmu.edu} and is described in Section \ref{EssenceTool}.
 
@@ -377,23 +375,31 @@ I analyzed the kernel search space and discovered that, in general, kernels util
 \label{PivotalKernelExtension}
 My current research objective is to evaluate the Essence kernel in industry and generate a kernel extension or replacement kernel that models iterative software projects at Pivotal.
 
+My current research objective is to analyze iterative software projects as performed in industry, for the purpose of creating an Essence kernel modification that accurately models empirical data collected on these projects. I am conducting this research at Pivotal where I work as a developer, an anchor (technical lead), and engineering manager. Pivotal software projects follow the Extreme Programming \cite{ExtremeProgrammingExplained} development method. They are iterative and incremental in nature, and hence good candidate for my research. Working full time at Pivotal, I am embedded on these projects and in the ideal position of using the participant-observer research technique \cite{QualitativeMethods}. 
+
 To accomplish this objective, I need to answer these research questions:
 
-Research Question 1: Does the kernel support software development as it is done at Pivotal? 
+Research Question 1: Does the Essence kernel accurately model software development as it is done at Pivotal? 
 
-Research Question 2: How would one modify or extend the kernel in order to support iterative development as it is done at Pivotal?
+Research Question 2: Are the observed effectiveness and limitations of the Essence kernel on iterative software projects in academia similar at Pivotal? 
 
-Research Question 3: How does the extension compare to other Essence components such as the Requirements-Item Sub-Alpha and the Software-System Alpha? 
+Research Question 3: (old) How would one modify or extend the kernel in order to model iterative development as it is done at Pivotal?
+
+Research Question 3: How would one model iterative development as it is done at Pivotal for the purpose of a kernel extension or replacement?
+
+Research Question 4: How does the extension compare to other Essence components such as the Requirements-Item Sub-Alpha and the Software-System Alpha? 
 
 I am using the participant-observer technique by joining software development teams as a full time software engineer. 
 
-In order to understand the Essence's project management and steering approach on industrial projects, I applied the approach to three sequential projects at Pivotal. The collected data confirms that the kernel does not provide value during the construction phase of iterative software in industry, just like what I saw in academia. For quantitative data, I analyzed alpha state progression against earned value from story completion across the duration of a project. For qualitative data, my adviser interviewed me on every aspect of the Essence kernel from a practitioner's point of view. (While self-interview is an accepted practice in this kind of research, we decided it would be better to have an explicit interviewer and interviewee.) After I transcribed this 4.5 hour multiple-day interview, I mined the content for specific issues with applying the Essence kernel on these projects at Pivotal. 
+In order to study the Essence kernel's project monitoring and steering approach on industrial projects, I am applying the approach to three sequential projects at Pivotal. The data collected so far confirms that the kernel does not provide value during the construction phase of iterative software in industry, just like what I saw in academia. For quantitative data, I analyze alpha state progression against earned value from story completion across the duration of each project. For qualitative data, my adviser interviewed me on every aspect of the Essence kernel from a practitioner's point of view. (While self-interview is an accepted practice in this kind of research, we decided it would be better to have an explicit interviewer and interviewee.) Following the transcription of this 4.5 hour multiple-day interview, I am mining the content for specific issues with applying the Essence kernel on these projects at Pivotal. My goal is to capture instances where Essence does not model Pivotal projects. 
 
-In order to create a kernel replacement, I am using grounded theory to construct a model that accurately reflects empirical data. This iterative research approach allows me to collect data, derive a model from the data, and continue collecting data until the ``saturation'' point when the collection of new data no longer changes the model. As software development occurs, I reflect on the software development experience. Each day I record field study notes briefly describing the accomplishments for my pair and me. Periodically, I analyze the observations to update a draft replacement kernel. New data either support the model or invalidate part of the model. When new data invalidates parts of the model, I will update the model to take into account the new data. In grounded theory, everything is data. I analyzed the team's delivery of 176 stories for a three month project to help further refine the model.
+In order to create a kernel replacement, I am using grounded theory \cite{ConstructivistGroundedTheory} to construct a model that accurately reflects empirical data. This iterative research approach allows me to collect data, derive a model from the data, and continue collecting data until the ``saturation'' point when the collection of new data no longer changes the model. As software development occurs, I reflect on the software development experience. Each day I record field study notes briefly describing the project accomplishments. Periodically, I analyze the observations to update a draft replacement kernel. New data either support the model or invalidate part of the model. When new data invalidates parts of the model, I will update the model to take into account the new data.
+
+%In grounded theory, everything is data. I analyzed the team's delivery of 176 stories for a three month project to help further refine the model.
 
 One of the downsides with the participant-observer technique is potential research bias. In order to minimize this issue, I plan to interview Pivotal product managers and Pivotal software engineers. I will record and transcribe these conversations. I will annotate the transcriptions with markers and use these to update the proposed model.
 
-I can achieve these results within the next year. Given my role at Pivotal, I have access to data and resources for software development in industry and thus I am in a unique position for a PhD student.  
+I can achieve these results within the next year. Given my role at Pivotal, I have access to data and resources for software development in industry and thus I am in an ideal position for a PhD student conducting empirical study in industry.
 
 % \begin{figure}[h]\vspace*{4pt}
 % \caption{Semi-structured Interview Questions}\vspace*{-6pt}\label{InterviewQuestions}
@@ -444,11 +450,17 @@ I can achieve these results within the next year. Given my role at Pivotal, I ha
 \label{Conclusions}
 
 % \subsection{Summary}
-The SEMAT community created Essence to ``re-found software engineering as a rigorous discipline." The Essence kernel serves as its foundation. The creators claim that it provides support and value to any software engineering project. Several authors have published papers explaining and promoting the Essence kernel. Currently anecdotal evidence indicates that the Essence kernel might add value for software projects. 
+The SEMAT community created Essence as a ``universal" framework aiming at providing support and value to any software engineering project. Several authors have published papers explaining and promoting the Essence kernel. Currently anecdotal evidence indicates that the Essence kernel might add value for software projects. 
 
-My published field study of software development teams in academia revealed that student teams working within the confines of a semester length course realize value in applying the Essence kernel. During Essence Reflection meetings, student teams using the Essence kernel found value during project inception and found less value during the construction phase of iterative  projects. For them, the ratio of project setup to construction enables them to still appreciate the Essence kernel even during weeks in which the kernel provides little guidance. However, on an industry project where project setup is a small piece of the overall project, changes are necessary for the team to realize value from the Essence kernel.
+My research goals are...
 
-Since most of agile software projects are iterative software development, adapting Essence kernel would increase its potential value to software development teams and the broader SEMAT community. A kernel extension for iterative software development would enable teams to find value from Essence during the construction phase of a project. Given the differences between traditional and iterative software development, possibly two essence kernels would emerge tailored to the unique circumstances of traditional and agile software development.
+My research goal is to evaluate the Essence kernel for practical use on academic and industrial software development projects, identify issues, and research solutions grounded in empirical evidence. My first goal is to evaluate the effectiveness of the Essence kernel monitoring and steering approach, and its applicability on a set of student and industry projects. My second goal is to analyze iterative software projects in industry for the purpose of creating a kernel modification or kernel replacement based on empirical data.
+
+My current contributions include the first published research work in applying the Essence kernel. My field study of graduate software engineering teams reveals the Essence kernel provides value to teams during project inception but does not reflect incremental progress achieved during construction on iterative projects. My conference tutorial and workshop teaches software engineering educators a process that leverages the Essence kernel to monitor students progress and steer their project in the context of team-based project courses. My web-based tool guides development teams during Essence Reflection meetings, and to support my research by facilitating the collection of data related to the use of Essence by the teams throughout the project lifecycle. My genetic algorithm utilizes my collected empirical data to create random kernels that score higher than the original. Based on the analysis of the fitness function, a kernel with a fundamentally different structure might more effectively recommend next steps for a team during Essence Reflection meetings. I now plan to create a kernel extension or kernel replacement that supports iterative software development projects.
+
+My published field study of software development teams in academia revealed that student teams working within the confines of a semester length course realize value in applying the Essence kernel. Using Essence Reflection meetings, student teams found value during project inception, as the kernel guides them to steer their projects to higher states. However, teams found less value during the construction phase of iterative  projects, as the kernel does not capture incremental progress. In this context, the ratio of project inception to construction enables teams to still appreciate the Essence kernel even during weeks in which it provides little steering guidance, as it still provides a reflection mechanism. However, on an industry project where inception is a small piece of the overall project, modifying or extending the kernel is necessary for the team to realize value from the approach throughout the project.
+
+Since most of agile software projects are iterative software development, adapting Essence kernel would increase its potential value to software development teams. A kernel extension for iterative software development would enable teams to find value from Essence during the construction phase of a project. Given the differences between traditional and iterative software development, possibly two essence kernels would emerge tailored to the unique circumstances of traditional and agile software development.
 
 \appendix
 \section{Research Timeline}
